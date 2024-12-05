@@ -139,23 +139,42 @@ add_action( 'widgets_init', 'storebase_widgets_init' );
 function storebase_scripts() {
 	wp_enqueue_style( 'storebase-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'storebase-bootstrap', get_template_directory_uri() .'/assets/css/bootstrap.css', array(), _S_VERSION );
-    wp_enqueue_style( 'storebase-font-awesome', get_template_directory_uri() .'/assets/css/font-awesome.min.css', array(), _S_VERSION );
     wp_enqueue_style( 'storebase-main', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION,'all' );
     wp_enqueue_style( 'storebase-responsive', get_template_directory_uri() .'/assets/css/responsive.css', array(), _S_VERSION );
+    wp_enqueue_style( 'storebase-color', get_template_directory_uri() .'/assets/css/colors/color1.css', array(), _S_VERSION );
+    wp_enqueue_style( 'storebase-animation', get_template_directory_uri() .'/assets/css/animate.css', array(), _S_VERSION );
 
 //    wp_style_add_data( 'storebase-style', 'rtl', 'replace' );
 
 //	wp_enqueue_script( 'storebase-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-    wp_enqueue_script( 'storebase-jquery', get_template_directory_uri() .'/assets/js/jquery-3.4.1.min.js', array(), _S_VERSION, true );
-    wp_enqueue_script( 'storebase-popper', get_template_directory_uri() .'/assets/js/popper.min.js', array(), _S_VERSION, true );
-    wp_enqueue_script( 'storebase-bootstrap', get_template_directory_uri() .'/assets/js/bootstrap.js', array(), _S_VERSION, true );
-    wp_enqueue_script( 'storebase-custom', get_template_directory_uri() .'/assets/js/custom.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'storebase-jquery', get_template_directory_uri() .'/assets/js/jquery.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-tether', get_template_directory_uri() .'/assets/js/tether.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-bootstrap', get_template_directory_uri() .'/assets/js/bootstrap.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-easing', get_template_directory_uri() .'/assets/js/jquery.easing.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-parallax', get_template_directory_uri() .'/assets/js/parallax.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-waypoints', get_template_directory_uri() .'/assets/js/jquery-waypoints.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-countTo', get_template_directory_uri() .'/assets/js/jquery-countTo.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-countdown', get_template_directory_uri() .'/assets/js/jquery.countdown.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-flexslider', get_template_directory_uri() .'/assets/js/jquery.flexslider-min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-img-loaded', get_template_directory_uri() .'/assets/js/images-loaded.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-isotope', get_template_directory_uri() .'/assets/js/jquery.isotope.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-magnific', get_template_directory_uri() .'/assets/js/magnific.popup.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-hoverdir', get_template_directory_uri() .'/assets/js/jquery.hoverdir.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-owl', get_template_directory_uri() .'/assets/js/owl.carousel.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-equalize', get_template_directory_uri() .'/assets/js/equalize.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-jquery-ui', get_template_directory_uri() .'/assets/js/jquery-ui.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-cookie', get_template_directory_uri() .'/assets/js/jquery.cookie.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'storebase-main-js', get_template_directory_uri() .'/assets/js/main.js', array(), _S_VERSION, true );
+    
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'storebase_scripts' );
+/**
+ * Navigation menu sections
+ */
+require get_template_directory() . '/inc/navigation-menu.php';
 
 /**
  * Implement the Custom Header feature.

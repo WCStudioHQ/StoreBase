@@ -10,97 +10,84 @@
  */
 
 ?>
-<!-- footer start -->
-<footer>
+<!-- Footer -->
+<footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="full">
-                    <div class="logo_footer">
-                        <a href="#" style="color: black; font-weight: bold; font-size: 30px;">
-                            StoreBase
-                            <!--                                <img width="210" src="images/logo.png" alt="#" />-->
-                        </a>
+            <div class="col-sm-6 col-md-3">
+                <div class="widget widget-link">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Online Store</a></li>
+                        <li><a href="blog-list.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div><!-- /.widget -->
+            </div><!-- /.col-md-3 -->
+            <div class="col-sm-6 col-md-3">
+                <div class="widget widget-link link-login">
+                    <ul>
+                        <li><a href="#">Login/ Register</a></li>
+                        <li><a href="#">Your Cart</a></li>
+                        <li><a href="#">Wishlist items</a></li>
+                        <li><a href="#">Your checkout</a></li>
+                    </ul>
+                </div><!-- /.widget -->
+            </div><!-- /.col-md-3 -->
+            <div class="col-sm-6 col-md-3">
+                <div class="widget widget-link link-faq">
+                    <ul>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="#">Term of service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div><!-- /.widget -->
+            </div><!-- /.col-md-3 -->
+            <div class="col-sm-6 col-md-3">
+                <div class="widget widget-brand">
+                    <div class="logo logo-footer">
+                        <a href="index.html"><img src="images/logo@2x.png" alt="image" width="107" height="24"></a>
                     </div>
-                    <div class="information_f">
-                        <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                        <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                        <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="widget_menu">
-                                    <h3>Menu</h3>
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Services</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="widget_menu">
-                                    <h3>Account</h3>
-                                    <ul>
-                                        <li><a href="#">Account</a></li>
-                                        <li><a href="#">Checkout</a></li>
-                                        <li><a href="#">Login</a></li>
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Shopping</a></li>
-                                        <li><a href="#">Widget</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="widget_menu">
-                            <h3>Newsletter</h3>
-                            <div class="information_f">
-                                <p>Subscribe by our newsletter and get update protidin.</p>
-                            </div>
-                            <div class="form_sub">
-                                <form>
-                                    <fieldset>
-                                        <div class="field">
-                                            <input type="email" placeholder="Enter Your Mail" name="email" />
-                                            <input type="submit" value="Subscribe" />
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <ul class="flat-contact">
+                        <li class="address">112 Kingdom, NA 12, New York</li>
+                        <li class="phone">+12 345 678 910</li>
+                        <li class="email">infor.deercreative@gmail.com</li>
+                    </ul><!-- /.flat-contact -->
+                </div><!-- /.widget -->
+            </div><!-- /.col-md-3 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</footer><!-- /.footer -->
+
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright text-center">
+                    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'storebase' ) ); ?>">
+                        <?php
+                        /* translators: %s: CMS name, i.e. WordPress. */
+                        printf( esc_html__( 'Copyright @2025 powered by %s', 'storebase' ), 'WordPress' );
+                        ?>
+                    </a>
+                    <span class="sep"> | </span>
+                    <?php
+                    /* translators: 1: Theme name, 2: Theme author. */
+                    printf( esc_html__( 'Theme: %1$s by %2$s.', 'storebase' ), 'storebase', '<a href="https://wcstudio.com">WC Studio</a>' );
+                    ?>
+
+                </p>
             </div>
         </div>
     </div>
-</footer>
-<!-- footer end -->
-<!--	<footer id="colophon" class="site-footer">-->
-<!--		<div class="site-info">-->
-<!--			<a href="--><?php //echo esc_url( __( 'https://wordpress.org/', 'storebase' ) ); ?><!--">-->
-<!--				--><?php
-//				/* translators: %s: CMS name, i.e. WordPress. */
-//				printf( esc_html__( 'Proudly powered by %s', 'storebase' ), 'WordPress' );
-//				?>
-<!--			</a>-->
-<!--			<span class="sep"> | </span>-->
-<!--				--><?php
-//				/* translators: 1: Theme name, 2: Theme author. */
-//				printf( esc_html__( 'Theme: %1$s by %2$s.', 'storebase' ), 'storebase', '<a href="https://wcstudio.com">WC Studio</a>' );
-//				?>
-<!--		</div>-->
-<!--	</footer>-->
-<!--</div>-->
+</div>
+
+<!-- Go Top -->
+<a class="go-top">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
 
 <?php wp_footer(); ?>
 
