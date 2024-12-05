@@ -29,229 +29,107 @@ get_header();
 
         <!-- Hero -->
 
-        <!-- PRODUCT -->
-        <section class="flat-row row-product-project shop-collection">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="title-section margin-bottom-41">
-                            <h2 class="title">Shop Collection</h2>
-                        </div>
-                        <ul class="flat-filter style-1 text-center max-width-682 clearfix">
-                            <li class="active"><a href="#" data-filter="*">All Product</a></li>
-                            <li><a href="#" data-filter=".kid">Clothing</a></li>
-                            <li><a href="#" data-filter=".man">Shoes</a></li>
-                            <li><a href="#" data-filter=".woman">Bags</a></li>
-                            <li><a href="#" data-filter=".accessories">Accessories</a></li>
-                        </ul>
-                        <div class="divider h40"></div>
-                        <div class="product-content product-fourcolumn clearfix">
-                            <ul class="product style2 isotope-product clearfix">
-                                <li class="product-item kid woman">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#">
-                                            <img src="images/shop/sh-4/1.jpg" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <ins>
-                                                <span class="amount">$19.00</span>
-                                            </ins>
-                                        </div>
-                                        <ul class="flat-color-list width-14">
-                                            <li>
-                                                <a href="#" class="red"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="blue"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="black"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item man accessories">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#">
-                                            <img src="images/shop/sh-4/2.jpg" alt="image">
-                                        </a>
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <ins>
-                                                <span class="amount">$10.00</span>
-                                            </ins>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item kid woman">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
-                                            <img src="images/shop/sh-4/3.jpg" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <ins>
-                                                <span class="amount">$20.00</span>
-                                            </ins>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item man accessories">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
-                                            <img src="images/shop/sh-4/4.jpg" alt="image">
-                                        </a>
-                                        <span class="new sale">Sale</span>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <del>
-                                                <span class="regular">$90.00</span>
-                                            </del>
-                                            <ins>
-                                                <span class="amount">$60.00</span>
-                                            </ins>
-                                        </div>
-                                        <ul class="flat-color-list width-14">
-                                            <li>
-                                                <a href="#" class="red"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="blue"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="black"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item kid woman">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
-                                            <img src="images/shop/sh-4/5.jpg" alt="image">
-                                        </a>
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <ins>
-                                                <span class="amount">$139.00</span>
-                                            </ins>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item man accessories">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
-                                            <img src="images/shop/sh-4/6.jpg" alt="image">
-                                        </a>
-                                        <span class="new sale">Sale</span>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <del>
-                                                <span class="regular">$150.00</span>
-                                            </del>
-                                            <ins>
-                                                <span class="amount">$120.00</span>
-                                            </ins>
-                                        </div>
-                                        <ul class="flat-color-list width-14">
-                                            <li>
-                                                <a href="#" class="red"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="blue"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="black"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item kid woman">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
-                                            <img src="images/shop/sh-4/7.jpg" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <ins>
-                                                <span class="amount">$110.00</span>
-                                            </ins>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                                <li class="product-item man accessories">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
-                                            <img src="images/shop/sh-4/8.jpg" alt="image">
-                                        </a>
-                                        <span class="new">New</span>
-                                    </div>
-                                    <div class="product-info clearfix">
-                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                        <div class="price">
-                                            <ins>
-                                                <span class="amount">$90.00</span>
-                                            </ins>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart text-center">
-                                        <a href="#">ADD TO CART</a>
-                                    </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+    <!-- PRODUCT -->
+    <section class="flat-row row-product-project shop-collection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-section margin-bottom-41">
+                        <h2 class="title">Shop Collection</h2>
                     </div>
+
+                    <!-- Category Filters -->
+                    <?php
+                    $categories = get_terms([
+                        'taxonomy' => 'product_cat',
+                        'hide_empty' => true,
+                    ]);
+                    ?>
+                    <ul class="flat-filter style-1 text-center max-width-682 clearfix">
+                        <li class="active"><a href="#" data-filter="*">All Products</a></li>
+                        <?php foreach ($categories as $category) : ?>
+                            <li>
+                                <a href="#" data-filter=".<?php echo esc_attr($category->slug); ?>"><?php echo esc_html($category->name); ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+
+                    <div class="divider h40"></div>
+
+                    <!-- Product List -->
+                    <div class="product-content product-fourcolumn clearfix">
+                        <ul class="product style2 isotope-product clearfix">
+                            <?php
+                            $args = [
+                                'post_type' => 'product',
+                                'posts_per_page' => -1,
+                            ];
+                            $query = new WP_Query($args);
+                            if ($query->have_posts()) :
+                                while ($query->have_posts()) :
+                                    $query->the_post();
+                                    global $product;
+                                    $product_categories = get_the_terms($product->get_id(), 'product_cat');
+                                    $category_classes = '';
+                                    if ($product_categories) {
+                                        foreach ($product_categories as $cat) {
+                                            $category_classes .= $cat->slug . ' ';
+                                        }
+                                    }
+                                    ?>
+                                    <li class="product-item <?php echo esc_attr(trim($category_classes)); ?>">
+                                        <div class="product-thumb clearfix">
+                                            <?php
+                                            $product_id = $product->get_id();
+                                            $image_id = get_post_thumbnail_id($product_id);
+                                            $image_url = wp_get_attachment_image_url($image_id, 'full');
+                                            ?>
+                                            <a href="#">
+                                                <?php
+                                                if ($image_url) {
+                                                    echo '<img class=" p-3" src="' . esc_url($image_url) . '" alt="' . esc_attr(get_the_title($product_id)) . '">';
+                                                } else {
+                                                    $fallback_image_url = get_theme_file_uri('/assets/images/shop/sh-3/1.jpg');
+                                                    echo '<img src="' . esc_url($fallback_image_url) . '" alt="No image available">';
+                                                }
+                                                ?>
+                                            </a>
+                                            <span class="new">New</span>
+                                        </div>
+                                        <div class="product-info clearfix mt-2">
+                                <span class="product-title">
+                                    <?php esc_html(the_title()); ?>
+                                </span>
+                                            <div class="price">
+                                                <ins>
+                                        <span class="amount">
+                                            <?php echo $product->get_price_html(); ?></span>
+                                                </ins>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart text-center">
+                                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>">Add To Cart</a>
+                                        </div>
+                                        <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                    </li>
+                                <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            else :
+                                ?>
+                                <p>No products found</p>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-        </section>
-        <!-- END PRODUCT -->
+        </div>
+    </section>
+    <!-- END PRODUCT -->
 
-        <!-- PRODUCT NEW -->
+
+    <!-- PRODUCT NEW -->
         <section class="flat-row row-best-sale">
             <div class="container">
                 <div class="row">
