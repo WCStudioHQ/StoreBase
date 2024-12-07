@@ -130,6 +130,27 @@ function storebase_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+    // Register 3 footer widget  for link
+    for ( $i = 1; $i <= 3; $i++ ) {
+        register_sidebar( array(
+            'name'          => __( "Footer Widget Area $i", 'storebase' ),
+            'id'            => "footer-$i",
+            'before_widget' => '<div class="widget widget-link">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ) );
+    }
+    // Footer widget for Branding
+    register_sidebar( array(
+        'name'          => __( "Footer Widget Area for Branding", 'storebase' ),
+        'id'            => "footer-brand",
+        'before_widget' => '<div class="widget widget-brand">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
 }
 add_action( 'widgets_init', 'storebase_widgets_init' );
 
