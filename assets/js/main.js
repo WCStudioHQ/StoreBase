@@ -546,7 +546,6 @@
 
             $('.flat-filter li').on('click',function() {
                 var selector = $(this).find("a").attr('data-filter');
-                console.log(selector);
                 $('.flat-filter li').removeClass('active');
                 $(this).addClass('active');
                 $container.isotope({ filter: selector });
@@ -571,7 +570,7 @@
                     navigation : true,
                     pagination: true,
                     autoplay: auto,
-                    autoplayTimeout: 5000,
+                    autoplayTimeout: 4000,
                     responsive: {
                         0:{
                             items:item3
