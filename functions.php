@@ -174,7 +174,7 @@ add_action( 'wp_enqueue_scripts', 'storebase_scripts' );
 /**
  * Navigation menu sections
  */
-require get_template_directory() . '/inc/navigation-menu.php';
+require get_template_directory() . '/inc/class-custom-nav-walker.php';
 
 /**
  * Implement the Custom Header feature.

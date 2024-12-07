@@ -27,40 +27,12 @@
 <!-- Boxed -->
 <div class="boxed">
     <div id="site-header-wrap">
-        <!-- Top Bar -->
-        <div id="top-bar">
-            <div id="top-bar-inner" class="container">
-                <div class="top-bar-inner-wrap">
-                    <div class="top-bar-content">
-                        <span class="content">FREE SHIPPING & FREE RETURNS ON ALL ORDERS</span>
-                    </div>
-                    <div class="top-bar-nav">
-                        <div class="inner">
-                            <div class="language-wrap">
-                                <ul class="language">
-                                    <li>
-                                        <a href="#">English</a>
-                                        <ul class="sub-language">
-                                            <li><a href="#">English</a></li>
-                                            <li><a href="#">France</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="money">USD <i class="fa fa-usd"></i></div>
-                            <div class="account"><a href="#">My Account <i class="fa fa-user"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Top Bar -->
         <!-- Header -->
         <header id="header" class="header header-container clearfix">
             <div class="container clearfix" id="site-header-inner">
                 <div id="logo" class="logo float-left">
-                    <a href="index.html" title="logo">
-                        <img src="images/logo.png" alt="image" width="107" height="24" data-retina="images/logo@2x.png" data-width="107" data-height="24">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo" width="107" height="24" data-retina="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" data-width="107" data-height="24">
                     </a>
                 </div><!-- /.logo -->
                 <div class="mobile-button"><span></span></div>
@@ -73,16 +45,56 @@
                         </form>
                     </li>
                     <li class="box-login">
-                        <a class="icon_login" href="#"></a>
+                        <?php if ( is_user_logged_in() ) : ?>
+                            <a href="<?php echo esc_url( wc_get_account_endpoint_url('dashboard') ); ?>" class="icon_login">
+                            </a>
+                        <?php else : ?>
+                            <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="icon_login">
+                            </a>
+                        <?php endif; ?>
                     </li>
                     <li class="box-cart nav-top-cart-wrapper">
-                        <a class="icon_cart nav-cart-trigger active" href="#"><span>3</span></a>
+                        <a class="icon_cart nav-cart-trigger active" href="<?php echo wc_get_cart_url(); ?>">
+                            <span><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                        </a>
                         <div class="nav-shop-cart">
                             <div class="widget_shopping_cart_content">
                                 <div class="woocommerce-min-cart-wrap">
-                                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                                            <span>No Items in Shopping Cart</span>
+                                    <ul class="woocommerce-mini-cart cart_list product_list_widget list-group">
+                                        <?php if ( WC()->cart->is_empty() ) : ?>
+                                            <li class="woocommerce-mini-cart-item mini_cart_item list-group-item text-center">
+                                                <span>No items in your cart</span>
+                                            </li>
+                                        <?php else : ?>
+                                            <?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
+                                                $product = $cart_item['data'];
+                                                ?>
+                                                <li class="woocommerce-mini-cart-item mini_cart_item list-group-item">
+                                                    <p class="m-0"><?php echo $product->get_name(); ?></p>
+                                                    <div class="d-flex align-items-center">
+                                                        <!-- Product Image -->
+                                                        <div class="cart-item-img me-2">
+                                                            <?php echo $product->get_image( 'custom-size', array( 'class' => 'img-fluid', 'width' => 30, 'height' => 30 ) ); ?>
+                                                        </div>
+                                                        <!-- Product Info -->
+                                                        <div class="cart-item-info d-flex p-3">
+                                                            <small class="text-muted"><?php echo $cart_item['quantity']; ?></small>
+                                                            <small class="text-muted">×</small>
+                                                            <small class="text-muted"><?php echo wc_price( $product->get_price() ); ?></small>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Product Total -->
+                                                    <div class="d-flex justify-content-between align-items-center p-3">
+                                                        <span><?php esc_html_e('Item Total','storebase')?></span>
+                                                        <span class="fw-bold text-end "><?php echo wc_price( $cart_item['line_total'] ); ?></span>
+
+                                                    </div>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                        <li class="d-flex justify-content-between mt-2 p-3">
+                                            <strong>Total:</strong>
+                                            <span class="fw-bold "><?php echo WC()->cart->get_cart_total(); ?></span>
                                         </li>
                                     </ul>
                                 </div><!-- /.widget_shopping_cart_content -->
@@ -91,77 +103,16 @@
                     </li>
                 </ul><!-- /.menu-extra -->
                 <div class="nav-wrap">
-                    <nav id="mainnav" class="mainnav">
-                        <ul class="menu">
-                            <li class="active">
-                                <a href="index.html">HOME</a>
-                                <ul class="submenu">
-                                    <li><a href="index.html">Homepage Style 1</a></li>
-                                    <li class="active"><a href="index-v2.html">Homepage Style 2</a></li>
-                                    <li><a href="index-v3.html">Homepage Style 3</a></li>
-                                    <li><a href="index-v4.html">Homepage Style 4</a></li>
-                                    <li><a href="index-v5.html">Homepage Style 5</a></li>
-                                    <li><a href="index-v6.html">Homepage Style 6</a></li>
-                                    <li><a href="index-v7.html">Homepage Style 7</a></li>
-                                    <li><a href="index-v8.html">Homepage Style 8</a></li>
-                                    <li><a href="index-v9.html">Homepage Style 9</a></li>
-                                    <li><a href="index-v10.html">Homepage Style 10</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="shop-3col.html">SHOP</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="shop-3col.html">Shop Layouts</a>
-                                        <ul class="submenu">
-                                            <li><a href="shop-3col.html">Three Columns</a></li>
-                                            <li><a href="shop-4col.html">Four Columns</a></li>
-                                            <li><a href="shop-5col.html">Five Columns</a></li>
-                                            <li><a href="shop-3col-slide.html">Slidebar Three Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-detail-des.html">Shop Details</a>
-                                        <ul class="submenu">
-                                            <li><a href="shop-detail-des.html">Details Description</a></li>
-                                            <li><a href="shop-detail-exter.html">Details External</a></li>
-                                            <li><a href="shop-detail-option.html">Details Options</a></li>
-                                            <li><a href="shop-detail-fix.html">Details Fix</a></li>
-                                            <li><a href="shop-detail-zoom.html">Details Zoom</a></li>
-                                            <li><a href="shop-detail-group.html">Details Grouped</a></li>
-                                            <li><a href="shop-detail-video.html">Details Video</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="coming-soon.html">PAGE</a>
-                                <ul class="submenu">
-                                    <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    <li><a href="404.html"> Error 404</a></li>
-                                    <li><a href="faqs.html">FAQs</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                                <a href="blog-list.html">BLOG</a>
-                                <ul class="submenu">
-                                    <li ><a href="blog-list.html">Blog List Full</a></li>
-                                    <li><a href="blog-list-1.html">Blog list Slide 1</a></li>
-                                    <li><a href="blog-list-2.html">Blog list Slide 2</a></li>
-                                    <li><a href="blog-grid.html">Blog Gird Full</a></li>
-                                    <li><a href="blog-grid-1.html">Blog Gird Slide</a></li>
-                                    <li><a href="blog-detail.html">Blog Details</a></li>
-                                </ul><!-- /.submenu -->
-                            </li>
-                            <li>
-                                <a href="contact.html">CONTACT</a>
-                                <ul class="submenu right-submenu">
-                                    <li><a href="contact.html">Contact Style 1</a></li>
-                                    <li><a href="contact-v2.html">Contact Style 2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav><!-- /.mainnav -->
+                    <?php
+                        wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container' => 'nav',
+                        'container_id' => 'mainnav',
+                        'container_class' => 'mainnav',
+                        'menu_class' => 'menu',
+                        'walker' => new Custom_Walker_Nav_Menu(),
+                        ));
+                    ?>
                 </div><!-- /.nav-wrap -->
             </div><!-- /.container-fluid -->
         </header><!-- /header -->
