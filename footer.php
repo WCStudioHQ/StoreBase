@@ -49,47 +49,72 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
+            <!-- Footer Widget Area 1 -->
             <div class="col-sm-6 col-md-3">
-                <div class="widget widget-link">
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Online Store</a></li>
-                        <li><a href="blog-list.html">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div><!-- /.widget -->
-            </div><!-- /.col-md-3 -->
-            <div class="col-sm-6 col-md-3">
-                <div class="widget widget-link link-login">
-                    <ul>
-                        <li><a href="#">Login/ Register</a></li>
-                        <li><a href="#">Your Cart</a></li>
-                        <li><a href="#">Wishlist items</a></li>
-                        <li><a href="#">Your checkout</a></li>
-                    </ul>
-                </div><!-- /.widget -->
-            </div><!-- /.col-md-3 -->
-            <div class="col-sm-6 col-md-3">
-                <div class="widget widget-link link-faq">
-                    <ul>
-                        <li><a href="faqs.html">FAQs</a></li>
-                        <li><a href="#">Term of service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Returns</a></li>
-                    </ul>
-                </div><!-- /.widget -->
-            </div><!-- /.col-md-3 -->
-            <div class="col-sm-6 col-md-3">
-                <div class="widget widget-brand">
-                    <div class="logo logo-footer">
-                        <a href="index.html"><img src="images/logo@2x.png" alt="image" width="107" height="24"></a>
+                <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+                    <?php dynamic_sidebar( 'footer-1' ); ?>
+                <?php else : ?>
+                    <div class="widget widget-link">
+                        <ul>
+                            <li><a href="#"><?php esc_html_e('About Us','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Online Store','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Blog','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Contact Us','storebase');?></a></li>
+
+                        </ul>
                     </div>
-                    <ul class="flat-contact">
-                        <li class="address">112 Kingdom, NA 12, New York</li>
-                        <li class="phone">+12 345 678 910</li>
-                        <li class="email">infor.deercreative@gmail.com</li>
-                    </ul><!-- /.flat-contact -->
-                </div><!-- /.widget -->
+                <?php endif; ?>
+            </div><!-- /.col-md-3 -->
+
+            <!-- Footer Widget Area 2 -->
+            <div class="col-sm-6 col-md-3">
+                <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+                    <?php dynamic_sidebar( 'footer-2' ); ?>
+                <?php else : ?>
+                    <div class="widget widget-link link-login">
+                        <ul>
+                            <li><a href="#"><?php esc_html_e('Login/ Register','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Your Cart','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Wishlist items','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Your checkout','storebase');?></a></li>
+
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div><!-- /.col-md-3 -->
+
+            <!-- Footer Widget Area 3 -->
+            <div class="col-sm-6 col-md-3">
+                <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
+                    <?php dynamic_sidebar( 'footer-3' ); ?>
+                <?php else : ?>
+                    <div class="widget widget-link link-faq">
+                        <ul>
+                            <li><a href="#"><?php esc_html_e('FAQs','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Term of service','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Privacy Policy','storebase');?></a></li>
+                            <li><a href="#"><?php esc_html_e('Returns','storebase');?></a></li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div><!-- /.col-md-3 -->
+
+            <!-- Footer Widget Area for Branding -->
+            <div class="col-sm-6 col-md-3">
+                <?php if ( is_active_sidebar( 'footer-brand' ) ) : ?>
+                    <?php dynamic_sidebar( 'footer-brand' ); ?>
+                <?php else : ?>
+                    <div class="widget widget-brand">
+                        <div class="logo logo-footer">
+                            <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/images/logo@2x.png" alt="image" width="107" height="24"></a>
+                        </div>
+                        <ul class="flat-contact">
+                            <li class="address"><?php esc_html_e('112 Kingdom, NA 12, New York','storebase');?></li>
+                            <li class="phone"><?php esc_html_e('+12 345 678 910','storebase');?></li>
+                            <li class="email"><?php esc_html_e('infor.deercreative@gmail.com','storebase');?></li>
+                        </ul><!-- /.flat-contact -->
+                    </div>
+                <?php endif; ?>
             </div><!-- /.col-md-3 -->
         </div><!-- /.row -->
     </div><!-- /.container -->
