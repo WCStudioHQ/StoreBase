@@ -39,4 +39,10 @@
 			}
 		} );
 	} );
+// footer copyright text
+	wp.customize( 'storebase_footer_text', function( value ) {
+		value.bind( function( newValue ) {
+			$( '.footer-bottom .copyright' ).html( newValue );
+		} );
+	} );
 }( jQuery ) );

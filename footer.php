@@ -125,18 +125,14 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="copyright text-center">
-                    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'storebase' ) ); ?>">
-                        <?php
-                        /* translators: %s: CMS name, i.e. WordPress. */
-                        printf( esc_html__( 'Copyright @2025 powered by %s', 'storebase' ), 'WordPress' );
-                        ?>
-                    </a>
-                    <span class="sep"> | </span>
                     <?php
-                    /* translators: 1: Theme name, 2: Theme author. */
-                    printf( esc_html__( 'Theme: %1$s by %2$s.', 'storebase' ), 'storebase', '<a href="https://wcstudio.com">WC Studio</a>' );
+                    echo wp_kses_post(
+                        get_theme_mod(
+                            'storebase_footer_text',
+                            __( 'Copyright ©2025 powered by WordPress. Theme by WC Studio.', 'storebase' )
+                        )
+                    );
                     ?>
-
                 </p>
             </div>
         </div>

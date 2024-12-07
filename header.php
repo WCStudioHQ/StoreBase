@@ -32,7 +32,16 @@
             <div class="container clearfix" id="site-header-inner">
                 <div id="logo" class="logo float-left">
                     <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo" width="107" height="24" data-retina="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" data-width="107" data-height="24">
+
+                        <?php if ( has_custom_logo() ) : ?>
+                            <?php the_custom_logo(); ?>
+                        <?php else : ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png"
+                                 alt="<?php bloginfo( 'name' ); ?>"
+                                 width="107" height="24"
+                                 data-retina="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png"
+                                 data-width="107" data-height="24">
+                        <?php endif; ?>
                     </a>
                 </div><!-- /.logo -->
                 <div class="mobile-button"><span></span></div>
