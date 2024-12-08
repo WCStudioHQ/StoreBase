@@ -98,13 +98,32 @@
                                                         <span class="fw-bold text-end "><?php echo wc_price( $cart_item['line_total'] ); ?></span>
 
                                                     </div>
+                                                    <!-- Remove Button -->
+                                                    <div class="text-end">
+                                                        <a href="<?php echo esc_url( wc_get_cart_remove_url( $cart_item_key ) ); ?>"
+                                                           class="remove text-danger"
+                                                           aria-label="<?php esc_attr_e( 'Remove this item', 'storebase' ); ?>"
+                                                           data-product_id="<?php echo esc_attr( $cart_item['product_id'] ); ?>"
+                                                           data-cart_item_key="<?php echo esc_attr( $cart_item_key ); ?>">
+                                                            <?php esc_html_e( 'Remove', 'storebase' ); ?>
+                                                        </a>
+                                                    </div>
                                                 </li>
                                             <?php endforeach; ?>
+                                            <li class="d-flex justify-content-between mt-2 p-3">
+                                                <strong>Total:</strong>
+                                                <span class="fw-bold "><?php echo WC()->cart->get_cart_total(); ?></span>
+                                            </li>
+                                             <div class="action-button">
+                                                 <a class="view-cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>" >
+                                                     <?php esc_html_e( 'View Cart', 'storebase' ); ?>
+                                                 </a>
+                                                 <a class="checkout" href="<?php echo esc_url( wc_get_checkout_url() ); ?>">
+                                                     <?php esc_html_e( 'Checkout', 'storebase' ); ?>
+                                                 </a>
+                                             </div>
                                         <?php endif; ?>
-                                        <li class="d-flex justify-content-between mt-2 p-3">
-                                            <strong>Total:</strong>
-                                            <span class="fw-bold "><?php echo WC()->cart->get_cart_total(); ?></span>
-                                        </li>
+
                                     </ul>
                                 </div><!-- /.widget_shopping_cart_content -->
                             </div>

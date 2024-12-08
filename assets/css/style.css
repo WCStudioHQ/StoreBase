@@ -1058,6 +1058,33 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 	background: #eeeeee;
 	color: #f63440;
 }
+.menu-extra li .action-button{
+	margin: 8px 2px;
+	display: flex;
+	justify-content: space-between;
+}
+.menu-extra li .action-button a{
+	border-radius: unset;
+	width: unset;
+	height: unset;
+}
+.menu-extra li .action-button .view-cart{
+	background-color: black;
+	font-size: 13px;
+	font-weight: bold;
+	color: white;
+	padding: 4px 12px;
+	border-radius: 8px;
+}
+.menu-extra li .action-button .checkout{
+	background-color: red;
+	font-size: 13px;
+	font-weight: bold;
+	color: white;
+	padding: 4px 12px;
+	border-radius: 8px;
+}
+	/*min cart action a */
 
 /* Search show */
 .menu-extra li.box-search .header-search-form {
