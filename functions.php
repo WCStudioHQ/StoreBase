@@ -26,7 +26,7 @@ function storebase_setup() {
 		* If you're building a theme based on StoreBase, use a find and replace
 		* to change 'storebase' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'storebase', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'storebase', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -89,15 +89,16 @@ function storebase_setup() {
 	 *
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		)
-	);
+    add_theme_support(
+        'custom-logo',
+        array(
+            'height'      => 250,
+            'width'       => 250,
+            'flex-width'  => true,
+            'flex-height' => true,
+        )
+    );
+
 }
 add_action( 'after_setup_theme', 'storebase_setup' );
 
@@ -200,7 +201,7 @@ require get_template_directory() . '/inc/class-custom-nav-walker.php';
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
