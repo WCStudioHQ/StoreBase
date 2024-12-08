@@ -32,7 +32,7 @@ function storebase_customize_register( $wp_customize ) {
 		);
 	}
 
-    // Add footer text customization section
+    // start footer text customization section
     $wp_customize->add_section(
         'storebase_footer_section',
         array(
@@ -56,13 +56,14 @@ function storebase_customize_register( $wp_customize ) {
     $wp_customize->add_control(
         'storebase_footer_text_control',
         array(
-            'label'       => __( 'Footer Text', 'storebase' ),
+            'label'       => __( 'Footer Bottom ', 'storebase' ),
             'section'     => 'storebase_footer_section',
             'settings'    => 'storebase_footer_text',
-            'type'        => 'textarea', // Allow multiline text input
+            'type'        => 'textarea',
             'description' => __( 'Edit the footer text displayed at the bottom of your site.', 'storebase' ),
         )
     );
+
     // Selective refresh for live previewing
     if ( isset( $wp_customize->selective_refresh ) ) {
         $wp_customize->selective_refresh->add_partial(
@@ -73,6 +74,121 @@ function storebase_customize_register( $wp_customize ) {
             )
         );
     }
+    // End footer text customization section
+
+    // Start Hero Section
+    // Add Hero Section
+    $wp_customize->add_section(
+        'storebase_hero_section',
+        array(
+            'title'       => __( 'Hero Section', 'storebase' ),
+            'priority'    => 140,
+            'description' => __( 'Customize the hero section.', 'storebase' ),
+        )
+    );
+
+    // Subheadline Setting
+    $wp_customize->add_setting(
+        'storebase_hero_subheadline',
+        array(
+            'default'           => __( 'Subheadline', 'storebase' ),
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport'         => 'postMessage',
+        )
+    );
+
+    $wp_customize->add_control(
+        'storebase_hero_subheadline_control',
+        array(
+            'label'       => __( 'Subheadline', 'storebase' ),
+            'section'     => 'storebase_hero_section',
+            'settings'    => 'storebase_hero_subheadline',
+            'type'        => 'text',
+        )
+    );
+
+    // Headline Setting
+    $wp_customize->add_setting(
+        'storebase_hero_headline',
+        array(
+            'default'           => __( 'Enter Your Headline Here', 'storebase' ),
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport'         => 'postMessage',
+        )
+    );
+
+    $wp_customize->add_control(
+        'storebase_hero_headline_control',
+        array(
+            'label'       => __( 'Headline', 'storebase' ),
+            'section'     => 'storebase_hero_section',
+            'settings'    => 'storebase_hero_headline',
+            'type'        => 'text',
+        )
+    );
+
+    // Button Text Setting
+    $wp_customize->add_setting(
+        'storebase_hero_button_text',
+        array(
+            'default'           => __( 'Get Started', 'storebase' ),
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport'         => 'postMessage',
+        )
+    );
+
+    $wp_customize->add_control(
+        'storebase_hero_button_text_control',
+        array(
+            'label'       => __( 'Button Text', 'storebase' ),
+            'section'     => 'storebase_hero_section',
+            'settings'    => 'storebase_hero_button_text',
+            'type'        => 'text',
+        )
+    );
+
+    // Button Link Setting
+    $wp_customize->add_setting(
+        'storebase_hero_button_link',
+        array(
+            'default'           => '#',
+            'sanitize_callback' => 'esc_url_raw',
+            'transport'         => 'postMessage',
+        )
+    );
+
+    $wp_customize->add_control(
+        'storebase_hero_button_link_control',
+        array(
+            'label'       => __( 'Button Link', 'storebase' ),
+            'section'     => 'storebase_hero_section',
+            'settings'    => 'storebase_hero_button_link',
+            'type'        => 'url',
+        )
+    );
+
+    // Background Image Setting
+    $wp_customize->add_setting(
+        'storebase_hero_bg_image',
+        array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'storebase_hero_bg_image_control',
+            array(
+                'label'    => __( 'Background Image', 'storebase' ),
+                'section'  => 'storebase_hero_section',
+                'settings' => 'storebase_hero_bg_image',
+            )
+        )
+    );
+    // End Header Section
+
 }
 add_action( 'customize_register', 'storebase_customize_register' );
 

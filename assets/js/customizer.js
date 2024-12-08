@@ -45,4 +45,36 @@
 			$( '.footer-bottom .copyright' ).html( newValue );
 		} );
 	} );
+
+	// Start Hero section
+	wp.customize( 'storebase_hero_subheadline', function( value ) {
+		value.bind( function( newval ) {
+			$( '.headline span' ).text( newval );
+		});
+	});
+
+	wp.customize( 'storebase_hero_headline', function( value ) {
+		value.bind( function( newval ) {
+			$( '.headline h2' ).text( newval );
+		});
+	});
+
+	wp.customize( 'storebase_hero_button_text', function( value ) {
+		value.bind( function( newval ) {
+			$( '.headline a' ).text( newval );
+		});
+	});
+
+	wp.customize( 'storebase_hero_button_link', function( value ) {
+		value.bind( function( newval ) {
+			$( '.headline a' ).attr( 'href', newval );
+		});
+	});
+
+	wp.customize( 'storebase_hero_bg_image', function( value ) {
+		value.bind( function( newval ) {
+			$( '.clipped' ).css( 'background-image', 'url(' + newval + ')' );
+		});
+	});
+	// End Hero section
 }( jQuery ) );
