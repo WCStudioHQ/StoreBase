@@ -47,7 +47,6 @@ function storebase_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
-    add_theme_support('menus');
     register_nav_menus(array(
             'primary' => __('Primary Menu', 'storebase'),
             'footer'  => __('Footer Menu', 'storebase'),
@@ -161,14 +160,11 @@ add_action( 'widgets_init', 'storebase_widgets_init' );
 function storebase_scripts() {
 	wp_enqueue_style( 'storebase-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'storebase-bootstrap', get_template_directory_uri() .'/assets/css/bootstrap.css', array(), _S_VERSION );
-    wp_enqueue_style( 'storebase-main', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION,'all' );
+    wp_enqueue_style( 'storebase-main', get_template_directory_uri() .'/assets/css/main-style.css', array(), _S_VERSION,'all' );
     wp_enqueue_style( 'storebase-responsive', get_template_directory_uri() .'/assets/css/responsive.css', array(), _S_VERSION );
     wp_enqueue_style( 'storebase-color', get_template_directory_uri() .'/assets/css/colors/color1.css', array(), _S_VERSION );
     wp_enqueue_style( 'storebase-animation', get_template_directory_uri() .'/assets/css/animate.css', array(), _S_VERSION );
-
-//    wp_style_add_data( 'storebase-style', 'rtl', 'replace' );
-
-//	wp_enqueue_script( 'storebase-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+//     Start script
     wp_enqueue_script( 'storebase-jquery', get_template_directory_uri() .'/assets/js/jquery.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'storebase-tether', get_template_directory_uri() .'/assets/js/tether.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'storebase-bootstrap', get_template_directory_uri() .'/assets/js/bootstrap.min.js', array(), _S_VERSION, true );

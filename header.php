@@ -19,11 +19,14 @@
 
 	<?php wp_head(); ?>
 </head>
-<body class="header_sticky header-style-1 topbar-style-1 has-menu-extra">
+<body <?php body_class(); ?> >
+<?php wp_body_open(); ?>
 <!-- Preloader -->
 <div id="loading-overlay">
-    <div class="loader"></div>
-</div>
+        <div class="loader"></div>
+    </div>
+
+
 <!-- Boxed -->
 <div class="boxed">
     <div id="site-header-wrap">
