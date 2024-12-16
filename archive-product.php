@@ -106,7 +106,6 @@ wp_reset_postdata();
                                     <div class="add-to-cart text-center">
                                         <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"><?php echo esc_html($product->add_to_cart_text()); ?></a>
                                     </div>
-                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                                 </li>
                                     <?php endwhile;
                                    } else {
