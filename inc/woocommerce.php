@@ -230,4 +230,86 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
         }
     });
 
+   // Start single product page hooks
+    add_filter( 'woocommerce_product_tabs', 'storebase_customize_product_tabs', 98 );
+    function storebase_customize_product_tabs( $tabs ) {
+        if ( isset( $tabs['description'] ) ) {
+            $tabs['description']['callback'] = 'custom_description_tab_content';
+        }
+
+        if ( isset( $tabs['additional_information'] ) ) {
+            $tabs['additional_information']['callback'] = 'custom_additional_information_tab_content';
+        }
+
+        if ( isset( $tabs['reviews'] ) ) {
+            $tabs['reviews']['callback'] = 'custom_reviews_tab_content';
+        }
+
+        return $tabs;
+    }
+
+    function custom_description_tab_content ()
+    {
+        ob_start();
+        ?>
+        <div class="p-4">
+            <?php the_content();?>
+        </div>
+        <?php
+        echo ob_get_clean();
+    }
+    function custom_additional_information_tab_content() {
+        global $product;
+
+        if ( ! $product ) {
+            return;
+        }
+
+        // Fetch product data
+        $weight = $product->get_weight() ? $product->get_weight() . ' kg' : 'N/A';
+        $dimensions = $product->get_dimensions() ? $product->get_dimensions() . ' cm' : 'N/A';
+        $material = $product->get_meta( 'material' ) ?: 'Not specified';
+        $sizes = $product->get_meta( 'sizes' ) ?: 'One Size';
+
+        ob_start();
+        ?>
+        <div class="inner max-width-40 p-4">
+            <table>
+                <tr>
+                    <td><?php esc_html_e('Weight','storebase'); ?></td>
+                    <td><?php echo esc_html( $weight ); ?></td>
+                </tr>
+                <tr>
+                    <td><?php esc_html_e('Dimensions','storebase'); ?></td>
+                    <td><?php echo esc_html( $dimensions ); ?></td>
+                </tr>
+                <tr>
+                    <td><?php esc_html_e('Materials','storebase'); ?></td>
+
+                    <td><?php echo esc_html( $material ); ?></td>
+                </tr>
+                <tr>
+                    <td><?php esc_html_e('Size','storebase'); ?></td>
+                    <td><?php echo esc_html( $sizes ); ?></td>
+                </tr>
+            </table>
+        </div>
+        <?php
+        echo ob_get_clean();
+    }
+
+    function custom_reviews_tab_content (){
+        ob_start();
+        ?>
+      <div class="p-4">
+          <?php comments_template(); ?>
+      </div>
+        <?php
+        echo ob_get_clean();
+
+    }
+
+    // End single product page hooks
+
+
 }
