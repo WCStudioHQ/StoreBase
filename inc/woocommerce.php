@@ -25,7 +25,7 @@ function storebase_woocommerce_setup() {
 			'product_grid'          => array(
 				'default_rows'    => 3,
 				'min_rows'        => 1,
-				'default_columns' => 4,
+				'default_columns' => 3,
 				'min_columns'     => 1,
 				'max_columns'     => 6,
 			),
@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'storebase_woocommerce_setup' );
  * @return void
  */
 function storebase_woocommerce_scripts() {
-	wp_enqueue_style( 'storebase-woocommerce-style', get_template_directory_uri() . '/assets/css/woocommerce.css', array(), _S_VERSION );
+	wp_enqueue_style( 'storebase-woocommerce-style', get_template_directory_uri() . '/assets/css/mz-woocommerce.css', array(), _S_VERSION );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -78,7 +78,7 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
  * @return array $classes modified to include 'woocommerce-active' class.
  */
 function storebase_woocommerce_active_body_class( $classes ) {
-	$classes[] = 'woocommerce-active';
+	$classes[] = 'woocommerce-active header_sticky header-style-1 topbar-style-1 has-menu-extra';
 
 	return $classes;
 }
@@ -118,7 +118,7 @@ if ( ! function_exists( 'storebase_woocommerce_wrapper_before' ) ) {
 	 */
 	function storebase_woocommerce_wrapper_before() {
 		?>
-			<main id="primary" class="site-main">
+			<section id="primary" class="site-main container">
 		<?php
 	}
 }
@@ -134,7 +134,7 @@ if ( ! function_exists( 'storebase_woocommerce_wrapper_after' ) ) {
 	 */
 	function storebase_woocommerce_wrapper_after() {
 		?>
-			</main><!-- #main -->
+			</section><!-- #main -->
 		<?php
 	}
 }
@@ -224,4 +224,10 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 		</ul>
 		<?php
 	}
+    add_action( 'get_header', function() {
+        if ( is_shop() ) {
+            remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+        }
+    });
+
 }

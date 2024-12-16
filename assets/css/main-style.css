@@ -4,7 +4,6 @@
 @import url("jquery-ui.css");
 @import url("flexslider.css");
 @import url("owl.carousel.css");
-@import url("woocommerce.css");
 @import url("magnific-popup.css");
 @import url("../rev-slider/css/settings.css");
 @import url("../rev-slider/css/layers.css");
@@ -2266,7 +2265,7 @@ article .more-link a:hover:after {
 	margin: 0px 3px;
 }
 
-.flat-pagination li a {
+.flat-pagination li  {
 	font-size: 16px;
 	line-height: 30px;
 	font-weight: 500;
@@ -2281,8 +2280,8 @@ article .more-link a:hover:after {
 	color: #6e6e6e;
 }
 
-.flat-pagination li.active a,
-.flat-pagination li a:hover {
+.flat-pagination li.active ,
+.flat-pagination li:hover {
 	background: #f63440;
 	border: 1px solid #f63440;
 	color:  #ffffff;
@@ -2504,6 +2503,7 @@ article .more-link a:hover:after {
 ---------------------------------------------------------------*/
 .footer {
 	padding: 55px 0px 9px 0px;
+	border-top: 1px solid #ebebeb;
 }
 
 .widget.widget-link ul li a {

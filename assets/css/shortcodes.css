@@ -752,6 +752,7 @@
 }
 
 .filter-shop .showing-product,
+.filter-shop .woocommerce-result-count,
 .filter-shop ul.flat-filter-search li  {
 	color: #333333;
 	font-size: 16px;
@@ -762,7 +763,10 @@
 	font-weight: 400;
 	float: left;
 }
-
+.filter-shop .woocommerce-result-count {
+	font-weight: 400;
+	float: left;
+}
 .filter-shop ul.flat-filter-search {
 	float: right;
 }
