@@ -311,5 +311,13 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 
     // End single product page hooks
 
+    // Start  archive product page hooks
+    add_action( 'woocommerce_before_main_content', 'storebase_remove_woocommerce_breadcrumbs' );
+    function storebase_remove_woocommerce_breadcrumbs() {
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+    }
+
+    // End archive product page hooks
+
 
 }
