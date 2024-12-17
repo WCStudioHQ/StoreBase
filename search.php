@@ -7,47 +7,50 @@
  * @package StoreBase
  */
 
-get_header();
-?>
+ get_header();
+ ?>
+<section class="container py-4">
+    <div class="row">
+        <!-- Main Content Area -->
+        <div class="col-12 col-md-8">
+            <main id="primary" class="site-main">
+                <?php if ( have_posts() ) : ?>
+                    <header class="page-header mb-4">
+                        <h1 class="page-title">
+                            <?php
+                            /* translators: %s: search query. */
+                            printf( esc_html__( 'Search Results for: %s', 'storebase' ), '<span>' . get_search_query() . '</span>' );
+                            ?>
+                        </h1>
+                    </header><!-- .page-header -->
 
-	<main id="primary" class="site-main">
+                    <?php
+                    /* Start the Loop */
+                    while ( have_posts() ) :
+                        the_post();
 
-		<?php if ( have_posts() ) : ?>
+                        get_template_part( 'template-parts/content', 'search' );
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'storebase' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+                    endwhile;
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+                    the_posts_navigation();
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+                else :
 
-			endwhile;
+                    get_template_part( 'template-parts/content', 'none' );
 
-			the_posts_navigation();
+                endif;
+                ?>
+            </main><!-- #main -->
+        </div><!-- /.col-md-8 -->
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+        <!-- Sidebar Area -->
+        <div class="col-12 col-md-4 mt-4 mt-md-0">
+            <?php get_sidebar(); ?>
+        </div><!-- /.col-md-4 -->
+    </div><!-- /.row -->
+</section>
 
 <?php
-get_sidebar();
 get_footer();
+
