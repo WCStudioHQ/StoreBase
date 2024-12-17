@@ -14,8 +14,8 @@
 
 get_header();
 ?>
-    <section>
-    <main id="primary" class="site-main container py-5">
+    <section class="container py-5">
+    <main id="primary" class="site-main ">
 
         <?php
         while ( have_posts() ) :
