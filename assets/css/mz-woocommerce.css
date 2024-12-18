@@ -32,7 +32,7 @@
 .products li .product-info .star-rating { display: none; }
 
 /* Buttons */
-.woocommerce-page .button { border-radius: 3px; font-weight: 500; letter-spacing: 0.5px; text-align: center; display: inline-block; background-color: #333; color: #fff; text-transform: uppercase; }
+.woocommerce-page .button { border-radius: 3px; font-weight: 500; letter-spacing: 0.5px; text-align: center; display: inline; background-color: #e03e2d; color: #fff; text-transform: uppercase; }
 .woocommerce-page .button:hover { opacity: 0.7; }
 
 /* Product Item */

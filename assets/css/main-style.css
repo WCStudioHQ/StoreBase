@@ -1057,6 +1057,9 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 	background: #eeeeee;
 	color: #f63440;
 }
+.menu-extra li .text-end a:hover {
+	background-color: unset;
+}
 .menu-extra li .action-button{
 	margin: 8px 2px;
 	display: flex;
@@ -1083,7 +1086,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 	padding: 4px 12px;
 	border-radius: 8px;
 }
-	/*min cart action a */
+/*min cart action a */
 
 /* Search show */
 .menu-extra li.box-search .header-search-form {

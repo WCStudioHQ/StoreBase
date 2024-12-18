@@ -1795,6 +1795,7 @@
 	padding: 0px;
 	padding-left: 16px;
 	font-weight: 300;
+
 }
 
 .product-detail .quantity input:focus {
@@ -1803,6 +1804,7 @@
 
 .product-detail .quantity {
 	position: relative;
+	display: inline;
 }
 
 .product-detail .quantity > span {
