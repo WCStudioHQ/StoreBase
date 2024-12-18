@@ -72,7 +72,7 @@
                 <?php else : ?>
                     <div class="widget widget-brand">
                         <div class="logo logo-footer">
-                            <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/images/logo@2x.png" alt="image" width="107" height="24"></a>
+                            <a href="<?php home_url();?>"><img src="<?php echo esc_url(get_template_directory_uri() .'/assets/images/logo@2x.png');?>" alt="image" width="107" height="24"></a>
                         </div>
                         <ul class="flat-contact">
                             <li class="address"><?php esc_html_e('112 Kingdom, NA 12, New York','storebase');?></li>

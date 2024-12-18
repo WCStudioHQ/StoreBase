@@ -134,7 +134,7 @@ function storebase_widgets_init() {
     // Register 3 footer widget  for link
     for ( $i = 1; $i <= 3; $i++ ) {
         register_sidebar( array(
-            'name'          => __( "Footer Widget Area $i", 'storebase' ),
+            'name'          => sprintf( esc_html__( 'Footer Widget Area %d', 'storebase' ), $i ),
             'id'            => "footer-$i",
             'before_widget' => '<div class="widget widget-link">',
             'after_widget'  => '</div>',
@@ -144,7 +144,7 @@ function storebase_widgets_init() {
     }
     // Footer widget for Branding
     register_sidebar( array(
-        'name'          => __( "Footer Widget Area for Branding", 'storebase' ),
+        'name'          => esc_html__( "Footer Widget Area for Branding", 'storebase' ),
         'id'            => "footer-brand",
         'before_widget' => '<div class="widget widget-brand">',
         'after_widget'  => '</div>',
