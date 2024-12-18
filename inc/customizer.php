@@ -47,8 +47,8 @@ function storebase_customize_register( $wp_customize ) {
         'storebase_footer_text',
         array(
             'default'           => __( 'Copyright ©2025 powered by WordPress. Theme by WC Studio.', 'storebase' ),
-            'sanitize_callback' => 'wp_kses_post', // Ensures only safe HTML is allowed
-            'transport'         => 'postMessage', // Allows live preview without reloading
+            'sanitize_callback' => 'wp_kses_post',
+            'transport'         => 'postMessage',
         )
     );
 

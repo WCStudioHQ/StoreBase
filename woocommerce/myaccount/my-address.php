@@ -63,7 +63,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
                 <?php
                 printf(
                 /* translators: %s: Address title */
-                    $address ? esc_html__( 'Edit %s', 'woocommerce' ) : esc_html__( 'Add %s', 'storebase' ),
+                    $address ? esc_html__( 'Edit %s', 'storebase' ) : esc_html__( 'Add %s', 'storebase' ),
                     esc_html( $address_title )
                 );
                 ?>
@@ -71,7 +71,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
         </header>
         <address>
             <?php
-            echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'woocommerce' );
+            echo $address ? wp_kses_post( $address ) : esc_html__( 'You have not set up this type of address yet.', 'storebase' );
 
             /**
              * Used to output content after core address fields.

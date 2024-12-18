@@ -128,8 +128,8 @@ wp_reset_postdata();
                                  'current' => max(1, get_query_var('paged')),
                                  'total' => $wp_query->max_num_pages,
                                  'prev_next' => true,
-                                 'prev_text' => __('&laquo;'),
-                                 'next_text' => __('&raquo;'),
+                                 'prev_text' => __('&laquo;','storebase'),
+                                 'next_text' => __('&raquo;' , 'storebase'),
                                  'type' => 'array',
                              ));
                              if ($pagination_links) {
