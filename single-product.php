@@ -1,11 +1,11 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit;
 }
 get_header();
 global $product;
-if ( ! is_a( $product, 'WC_Product' ) ) {
-    $product = wc_get_product( get_the_ID() );
+if (!is_a($product, 'WC_Product')) {
+    $product = wc_get_product(get_the_ID());
 }
 ?>
 
@@ -20,24 +20,27 @@ if ( ! is_a( $product, 'WC_Product' ) ) {
                                     <?php
                                     $gallery_image_ids = $product->get_gallery_image_ids();
 
-                                    if ( ! empty( $gallery_image_ids ) ) {
-                                        foreach ( $gallery_image_ids as $attachment_id ) {
-                                            $image = wp_get_attachment_image_url( $attachment_id,'full' );
-                                            $image_thumbnail = wp_get_attachment_image_url( $attachment_id,'thumbnail' );
+                                    if (!empty($gallery_image_ids)) {
+                                        foreach ($gallery_image_ids as $attachment_id) {
+                                            $image = wp_get_attachment_image_url($attachment_id, 'full');
+                                            $image_thumbnail = wp_get_attachment_image_url($attachment_id, 'thumbnail');
                                             ?>
-                                            <li data-thumb="<?php echo esc_url( $image_thumbnail ); ?>">
-                                                <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $product->get_title() ); ?>" />
+                                            <li data-thumb="<?php echo esc_url($image_thumbnail); ?>">
+                                                <img src="<?php echo esc_url($image); ?>"
+                                                     alt="<?php echo esc_attr($product->get_title()); ?>"/>
                                                 <div class="flat-icon style-1">
-                                                    <a href="<?php echo esc_url( $image ); ?>" class="zoom-popup"><span class="fa fa-search-plus"></span></a>
+                                                    <a href="<?php echo esc_url($image); ?>" class="zoom-popup"><span
+                                                                class="fa fa-search-plus"></span></a>
                                                 </div>
                                             </li>
                                             <?php
                                         }
                                     } else {
-                                        $thumbnail_url = wp_get_attachment_image_url( $product->get_image_id(), 'full' );
+                                        $thumbnail_url = wp_get_attachment_image_url($product->get_image_id(), 'full');
                                         ?>
                                         <li>
-                                            <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $product->get_title() ); ?>">
+                                            <img src="<?php echo esc_url($thumbnail_url); ?>"
+                                                 alt="<?php echo esc_attr($product->get_title()); ?>">
                                         </li>
                                         <?php
                                     }
@@ -52,97 +55,63 @@ if ( ! is_a( $product, 'WC_Product' ) ) {
                     <div class="product-detail">
                         <div class="inner">
                             <div class="content-detail">
-                                <h2 class="product-title"><?php the_title()?></h2>
+                                <h2 class="product-title"><?php the_title() ?></h2>
                                 <div class="flat-star style-1">
                                     <?php
                                     $average_rating = $product->get_average_rating();
                                     $review_count = $product->get_review_count();
 
-                                    if ( $average_rating ) : ?>
-                                        <?php for ( $i = 1; $i <= 5; $i++ ) : ?>
-                                            <?php if ( $i <= $average_rating ) : ?>
+                                    if ($average_rating) : ?>
+                                        <?php for ($i = 1; $i <= 5; $i++) : ?>
+                                            <?php if ($i <= $average_rating) : ?>
                                                 <i class="fa fa-star"></i>
-                                            <?php elseif ( $i - $average_rating < 1 ) : ?>
+                                            <?php elseif ($i - $average_rating < 1) : ?>
                                                 <i class="fa fa-star-half-o"></i>
                                             <?php else : ?>
                                                 <i class="fa fa-star-o"></i>
                                             <?php endif; ?>
                                         <?php endfor; ?>
-                                        <?php if ( $review_count ) : ?>
-                                            <span>(<?php echo esc_html( $review_count ); ?>)</span>
+                                        <?php if ($review_count) : ?>
+                                            <span>(<?php echo esc_html($review_count); ?>)</span>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </div>
                                 <?php
-                                $short_description = apply_filters( 'woocommerce_short_description', $product->get_short_description() );
-                                if ( $short_description ) : ?>
-                                <p class="product-short-description">
-                                    <?php echo $short_description; ?>
-                                </p>
+                                $short_description = apply_filters('woocommerce_short_description', $product->get_short_description());
+                                if ($short_description) : ?>
+                                    <p class="product-short-description">
+                                        <?php echo $short_description; ?>
+                                    </p>
                                 <?php endif; ?>
                                 <div class="price">
                                     <?php echo $product->get_price_html(); ?>
                                 </div>
                                 <?php
-                                $attributes = $product->get_attributes();
-                                $sizes = $product->get_attribute('pa_size'); // Replace 'pa_size' with your attribute slug
-                                if ($sizes):?>
-                                    <div class="size">
-                                    <span>Size:</span>
-                                    <ul>
-                                        <?php
-                                            $sizes = explode('|', $sizes);
-                                           foreach ( $sizes as $size ) :
-                                            ?>
-                                            <li><a href="#"><?php echo esc_html( trim( $size ) ); ?></a></li>
-                                           <?php endforeach; ?>
-                                    </ul>
-
-                                </div>
-                                    <?php endif;?>
-                                <div class="product-color">
-                                    <div class="product-color">
-                                        <?php
-                                        $colors = $product->get_attribute('pa_color');
-                                        if ( $colors ) : ?>
-                                            <span>Colors:</span>
-                                            <ul class="flat-color-list">
-                                                <?php
-                                                $colors_array = explode('|', $colors);
-                                                foreach ( $colors_array as $color ) : ?>
-                                                    <li><a href="#" class="<?php echo esc_attr( strtolower( trim( $color ) ) ); ?>"></a></li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        <?php endif; ?>
-                                    </div>
-
-
-                                </div>
-                                <form class="cart"  method="post" enctype="multipart/form-data">
-                                <div class="product-quantity">
-                                    <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>">
-                                    <?php wp_nonce_field( 'add_to_cart', '_wpnonce' ); ?>
-                                                <?php
-                                                do_action('woocommerce_before_add_to_cart_button');
-                                                woocommerce_quantity_input();
-                                                do_action('woocommerce_after_add_to_cart_button');
-                                                ?>
-                                                <button type="submit" class="add-to-cart"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
-
-                                </div>
-                                </form>
+                                if ($product->is_type('simple')) {
+                                    woocommerce_simple_add_to_cart();
+                                }
+                                if ($product->is_type('variable')) {
+                                    woocommerce_variable_add_to_cart();
+                                }
+                                if ($product->is_type('grouped')) {
+                                    woocommerce_grouped_add_to_cart();
+                                }
+                                if ($product->is_type('external')) {
+                                    woocommerce_external_add_to_cart();
+                                }
+                                ?>
                                 <div class="product-categories">
                                     <?php
-                                    $categories = wc_get_product_category_list( $product->get_id() );
-                                    if ( $categories ) :  ?>
+                                    $categories = wc_get_product_category_list($product->get_id());
+                                    if ($categories) : ?>
                                         <span>Categories: </span>
                                         <?php echo $categories; ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="product-tags">
                                     <?php
-                                    $tags = wc_get_product_tag_list( $product->get_id() );
-                                    if ( $tags ) :  ?>
+                                    $tags = wc_get_product_tag_list($product->get_id());
+                                    if ($tags) : ?>
                                         <span>Tags: </span>
                                         <?php echo $tags; ?>
                                     <?php endif; ?>
@@ -156,10 +125,9 @@ if ( ! is_a( $product, 'WC_Product' ) ) {
         </div><!-- /.container -->
     </section><!-- /.flat-row -->
 <?php
-    $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
-//  var_dump($product_tabs);
-    $total_tabs = count( $product_tabs );
-if ( ! empty( $product_tabs ) ) : ?>
+$product_tabs = apply_filters('woocommerce_product_tabs', array());
+$total_tabs = count($product_tabs);
+if (!empty($product_tabs)) : ?>
     <section class="flat-row shop-detail-content">
         <div class="container">
             <div class="row">
@@ -167,22 +135,22 @@ if ( ! empty( $product_tabs ) ) : ?>
                     <div class="flat-tabs style-1 has-border">
                         <div class="inner">
                             <ul class="menu-tab">
-                                <?php foreach ( $product_tabs as $key => $product_tab ) : ?>
+                                <?php foreach ($product_tabs as $key => $product_tab) : ?>
 
-                                    <li >
-                                    <?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
+                                    <li>
+                                        <?php echo wp_kses_post(apply_filters('woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key)); ?>
                                     </li>
                                 <?php endforeach; ?>
 
                             </ul>
                             <div class="content-tab">
                                 <?php
-                                foreach ( $product_tabs as $key => $product_tab ) : ?>
+                                foreach ($product_tabs as $key => $product_tab) : ?>
                                     <div class="content-inner">
                                         <div class="flat-grid-box border-width border-width-1 has-padding clearfix">
                                             <?php
-                                            if ( isset( $product_tab['callback'] ) && is_callable( $product_tab['callback'] ) ) {
-                                                call_user_func( $product_tab['callback'], null, null, $product_tab );
+                                            if (isset($product_tab['callback']) && is_callable($product_tab['callback'])) {
+                                                call_user_func($product_tab['callback'], null, null, $product_tab);
                                             }
                                             ?>
                                         </div><!-- /.flat-grid-box -->
@@ -190,7 +158,7 @@ if ( ! empty( $product_tabs ) ) : ?>
                                 <?php endforeach; ?>
 
                             </div>
-                            <?php do_action( 'woocommerce_product_after_tabs' ); ?>
+                            <?php do_action('woocommerce_product_after_tabs'); ?>
 
                         </div>
                     </div>
@@ -198,43 +166,44 @@ if ( ! empty( $product_tabs ) ) : ?>
             </div>
         </div>
     </section><!-- /.shop-detail-content -->
- <?php endif;?>
-   <?php
-   $related_ids = wc_get_related_products( $product->get_id(), 4 );
-   ?>
-     <?php if ( $related_ids ) : ?>
+<?php endif; ?>
+<?php
+$related_ids = wc_get_related_products($product->get_id(), 4);
+?>
+<?php if ($related_ids) : ?>
     <section class="flat-row shop-related">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="title-section margin-bottom-55">
-                        <h2 class="title"><?php _e('Related Products','storebase');?></h2>
+                        <h2 class="title"><?php _e('Related Products', 'storebase'); ?></h2>
                     </div>
 
                     <div class="product-content product-fourcolumn clearfix">
                         <ul class="product style2">
                             <?php
-                            foreach ( $related_ids as $related_id ) {
-                            $related_product = wc_get_product( $related_id );
-                            ?>
-                            <li class="product-item">
-                                <div class="product-thumb clearfix p-2">
-                                    <a href="<?php echo esc_url( get_permalink( $related_product->get_id() ) ); ?>">
-                                        <img src="<?php echo esc_url( wp_get_attachment_url( $related_product->get_image_id() ) ); ?>" alt="<?php echo esc_attr( $related_product->get_name() ); ?>">
-                                    </a>
-                                </div>
-                                <div class="product-info clearfix my-2">
-                                    <span class="product-title"><?php echo esc_html( $related_product->get_name() ); ?></span>
-                                    <div class="price">
-                                        <?php echo $related_product->get_price_html(); ?>
+                            foreach ($related_ids as $related_id) {
+                                $related_product = wc_get_product($related_id);
+                                ?>
+                                <li class="product-item">
+                                    <div class="product-thumb clearfix p-2">
+                                        <a href="<?php echo esc_url(get_permalink($related_product->get_id())); ?>">
+                                            <img src="<?php echo esc_url(wp_get_attachment_url($related_product->get_image_id())); ?>"
+                                                 alt="<?php echo esc_attr($related_product->get_name()); ?>">
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="<?php echo esc_url( $related_product->add_to_cart_url() ); ?>" ><?php echo esc_html( $related_product->add_to_cart_text() ); ?></a>
-                                </div>
-                            </li>
-                            <?php
-                             }
+                                    <div class="product-info clearfix my-2">
+                                        <span class="product-title"><?php echo esc_html($related_product->get_name()); ?></span>
+                                        <div class="price">
+                                            <?php echo $related_product->get_price_html(); ?>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="<?php echo esc_url($related_product->add_to_cart_url()); ?>"><?php echo esc_html($related_product->add_to_cart_text()); ?></a>
+                                    </div>
+                                </li>
+                                <?php
+                            }
                             ?>
                         </ul><!-- /.product -->
                     </div><!-- /.product-content -->

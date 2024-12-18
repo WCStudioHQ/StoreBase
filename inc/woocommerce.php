@@ -44,7 +44,6 @@ add_action( 'after_setup_theme', 'storebase_woocommerce_setup' );
  */
 function storebase_woocommerce_scripts() {
 	wp_enqueue_style( 'storebase-woocommerce-style', get_template_directory_uri() . '/assets/css/mz-woocommerce.css', array(), _S_VERSION );
-
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
 			font-family: "star";
@@ -58,6 +57,9 @@ function storebase_woocommerce_scripts() {
 		}';
 
 	wp_add_inline_style( 'storebase-woocommerce-style', $inline_font );
+    if (is_product()) {
+        wp_enqueue_script('wc-add-to-cart-variation');
+    }
 }
 add_action( 'wp_enqueue_scripts', 'storebase_woocommerce_scripts' );
 
