@@ -37,6 +37,7 @@ switch ($orderby) {
 }
 $product_loop = new WP_Query($args);
 wp_reset_postdata();
+var_dump(wc_get_loop_prop( 'columns' ));
 ?>
 <?php
  do_action('woocommerce_before_main_content');

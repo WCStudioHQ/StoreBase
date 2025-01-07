@@ -26,8 +26,8 @@ function storebase_woocommerce_setup() {
 				'default_rows'    => 3,
 				'min_rows'        => 1,
 				'default_columns' => 3,
-				'min_columns'     => 1,
-				'max_columns'     => 6,
+				'min_columns'     => 3,
+				'max_columns'     => 5,
 			),
 		)
 	);
@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'storebase_woocommerce_setup' );
  * @return void
  */
 function storebase_woocommerce_scripts() {
-	wp_enqueue_style( 'storebase-woocommerce-style', get_template_directory_uri() . '/assets/css/mz-woocommerce.css', array(), _S_VERSION );
+	wp_enqueue_style( 'storebase-woocommerce-style', get_template_directory_uri() . '/assets/css/woocommerce.css', array(), _S_VERSION );
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
 			font-family: "star";
@@ -120,7 +120,11 @@ if ( ! function_exists( 'storebase_woocommerce_wrapper_before' ) ) {
 	 */
 	function storebase_woocommerce_wrapper_before() {
 		?>
-			<section id="primary" class="site-main container">
+        <!-- PRODUCT -->
+        <section class="flat-row main-shop style1">
+        <div class="container">
+        <div class="row">
+         <div class="col-md-12">
 		<?php
 	}
 }
@@ -136,11 +140,56 @@ if ( ! function_exists( 'storebase_woocommerce_wrapper_after' ) ) {
 	 */
 	function storebase_woocommerce_wrapper_after() {
 		?>
-			</section><!-- #main -->
+        </div>
+        </div>
+        </div>
+        </section>
 		<?php
 	}
 }
 add_action( 'woocommerce_after_main_content', 'storebase_woocommerce_wrapper_after' );
+
+/**
+ * Remove the breadcrumbs for woocommerce shop page
+ */
+function storebase_remove_woocommerce_action() {
+    if ( is_shop()) {
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+        remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+        remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+        remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
+        remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+        remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+
+
+    }
+}
+add_action( 'woocommerce_before_main_content', 'storebase_remove_woocommerce_action' );
+
+/**
+ * @snippet       Remove shop page title - WooCommerce Shop
+ * @compatible    WooCommerce
+ */
+add_filter( 'woocommerce_show_page_title', '__return_null' );
+
+/**
+ * Add container before shop loop
+ */
+function storebase_add_container_before_shop_loop() {
+    $columns = wc_get_loop_prop( 'columns' );
+    // Use NumberFormatter to convert the number to a word
+    $formatter = new NumberFormatter('en', NumberFormatter::SPELLOUT);
+    $column_word = $formatter->format($columns);
+    echo '<div class="product-content product-' . esc_attr($column_word) . 'column clearfix">';
+}
+add_action('woocommerce_before_shop_loop', 'storebase_add_container_before_shop_loop', 5);
+/**
+ * Add container after shop loop
+ */
+function storebase_add_container_after_shop_loop() {
+    echo '</div>';
+}
+add_action('woocommerce_after_shop_loop', 'storebase_add_container_after_shop_loop', 5);
 
 /**
  * Sample implementation of the WooCommerce Mini Cart.
@@ -313,13 +362,7 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 
     // End single product page hooks
 
-    // Start  archive product page hooks
-    add_action( 'woocommerce_before_main_content', 'storebase_remove_woocommerce_breadcrumbs' );
-    function storebase_remove_woocommerce_breadcrumbs() {
-        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-    }
 
-    // End archive product page hooks
 
 
 }
