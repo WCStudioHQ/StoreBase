@@ -174,6 +174,28 @@ add_action( 'woocommerce_before_main_content', 'storebase_remove_woocommerce_act
 add_filter( 'woocommerce_show_page_title', '__return_null' );
 
 /**
+ * add custom filter in shop page for woocommerce
+ * @param $quer
+ */
+if(!function_exists('storebase_custom_filter')) {
+    function storebase_custom_filter() {
+        if (is_shop()) {
+            echo '<div class="shop-filters-container d-flex flex-wrap justify-content-between align-items-center my-2 py-2">';
+            do_action('storebase_before_shop_filters');
+            echo '<div class="result-count-container col-12 col-md-6 mb-2 mb-md-0">';
+            woocommerce_result_count();
+            echo '</div>';
+            echo '<div class="catalog-ordering-container col-12 col-md-6 text-md-end">';
+            woocommerce_catalog_ordering();
+            echo '</div>';
+            do_action('storebase_after_shop_filters');
+            echo '</div>';
+        }
+    }
+}
+add_action('woocommerce_before_shop_loop', 'storebase_custom_filter', 10);
+
+/**
  * Add container before shop loop
  */
 function storebase_add_container_before_shop_loop() {
@@ -183,7 +205,7 @@ function storebase_add_container_before_shop_loop() {
     $column_word = $formatter->format($columns);
     echo '<div class="product-content product-' . esc_attr($column_word) . 'column clearfix">';
 }
-add_action('woocommerce_before_shop_loop', 'storebase_add_container_before_shop_loop', 5);
+add_action('woocommerce_before_shop_loop', 'storebase_add_container_before_shop_loop', 15);
 /**
  * Add container after shop loop
  */

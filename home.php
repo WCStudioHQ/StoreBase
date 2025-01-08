@@ -105,7 +105,6 @@ get_header();
                                                 }
                                                 ?>
                                             </a>
-                                            <span class="new">New</span>
                                         </div>
                                         <div class="product-info clearfix mt-2">
                                 <span class="product-title">
@@ -122,7 +121,6 @@ get_header();
                                             <a href="<?php echo esc_url($product->add_to_cart_url()); ?>">Add To
                                                 Cart</a>
                                         </div>
-                                        <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                                     </li>
                                 <?php
                                 endwhile;
