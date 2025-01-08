@@ -45,7 +45,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
     ?>
     </div>
 
-    <div class="product-info mt-2 clearfix">
+    <div class="product-info mt-1 clearfix">
         <?php
 	/**
 	 * Hook: woocommerce_shop_loop_item_title.

@@ -152,17 +152,18 @@ add_action( 'woocommerce_after_main_content', 'storebase_woocommerce_wrapper_aft
 /**
  * Remove the breadcrumbs for woocommerce shop page
  */
+
+if(!function_exists('storebase_remove_woocommerce_action')){
 function storebase_remove_woocommerce_action() {
     if ( is_shop()) {
-        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
         remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
         remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
         remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
+        remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
         remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
         remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
-
-
     }
+}
 }
 add_action( 'woocommerce_before_main_content', 'storebase_remove_woocommerce_action' );
 
@@ -192,16 +193,60 @@ function storebase_add_container_after_shop_loop() {
 add_action('woocommerce_after_shop_loop', 'storebase_add_container_after_shop_loop', 5);
 
 /**
- * Sample implementation of the WooCommerce Mini Cart.
- *
- * You can add the WooCommerce Mini Cart to header.php like so ...
- *
-	<?php
-		if ( function_exists( 'storebase_woocommerce_header_cart' ) ) {
-			storebase_woocommerce_header_cart();
-		}
-	?>
+ * add custom pagination in shop page for woocommerce
  */
+
+if(!function_exists('storebase_custom_pagination')) {
+    function storebase_custom_pagination() {
+
+        if (is_shop()){
+
+                $total_pages = wc_get_loop_prop('total_pages');
+                $current_page = wc_get_loop_prop('current_page');
+                $base = esc_url_raw(str_replace(999999999, '%#%', remove_query_arg('add-to-cart', get_pagenum_link(999999999, false))));
+                $format = '';
+            if ($total_pages > 1) {
+                echo '<div class="woocommerce-pagination product-pagination text-center margin-top-11 clearfix" aria-label="' . esc_attr__('Product Pagination', 'storebase') . '">';
+
+                // Generate pagination links
+                $pagination_links = paginate_links(
+                    apply_filters(
+                        'woocommerce_pagination_args',
+                        array(
+                            'base' => $base,
+                            'format' => $format,
+                            'add_args' => false,
+                            'current' => max(1, $current_page),
+                            'total' => $total_pages,
+                            'prev_text' => is_rtl() ? '<i class="fa fa-angle-left"></i>' : '<i class="fa fa-angle-left"></i>',
+                            'next_text' => is_rtl() ? '<i class="fa fa-angle-right"></i>' : '<i class="fa fa-angle-right"></i>',
+                            'type' => 'array',
+
+                        )
+                    )
+                );
+
+                if (!empty($pagination_links)) {
+                    echo '<ul class="flat-pagination">';
+                    foreach ($pagination_links as $link) {
+                        if (strpos($link, 'current') !== false) {
+                            echo '<li class="active">' . $link . '</li>';
+                        } else {
+                            echo '<li>' . $link . '</li>';
+                        }
+                    }
+                    echo '</ul>';
+                }
+
+                echo '</div>';
+            }
+
+        }
+    }
+
+}
+
+ add_action('woocommerce_after_shop_loop', 'storebase_custom_pagination', 10);
 
 if ( ! function_exists( 'storebase_woocommerce_cart_link_fragment' ) ) {
 	/**
@@ -281,8 +326,13 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
         }
     });
 
-   // Start single product page hooks
-    add_filter( 'woocommerce_product_tabs', 'storebase_customize_product_tabs', 98 );
+   /*#### Start Single Product Page Hooks #####*/
+
+    /*
+     * Customize Product Tabs
+     * @param array $tabs
+     * @return array $tabs
+     */
     function storebase_customize_product_tabs( $tabs ) {
         if ( isset( $tabs['description'] ) ) {
             $tabs['description']['callback'] = 'custom_description_tab_content';
@@ -298,7 +348,12 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 
         return $tabs;
     }
-
+    add_filter( 'woocommerce_product_tabs', 'storebase_customize_product_tabs', 98 );
+    /*
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
+     */
     function custom_description_tab_content ()
     {
         ob_start();
@@ -309,19 +364,21 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
         <?php
         echo ob_get_clean();
     }
+    /*
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
+     */
     function custom_additional_information_tab_content() {
         global $product;
 
         if ( ! $product ) {
             return;
         }
-
-        // Fetch product data
         $weight = $product->get_weight() ? $product->get_weight() . ' kg' : 'N/A';
         $dimensions = $product->get_dimensions() ? $product->get_dimensions() . ' cm' : 'N/A';
         $material = $product->get_meta( 'material' ) ?: 'Not specified';
         $sizes = $product->get_meta( 'sizes' ) ?: 'One Size';
-
         ob_start();
         ?>
         <div class="inner max-width-40 p-4">
@@ -349,6 +406,11 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
         echo ob_get_clean();
     }
 
+    /*
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
+     */
     function custom_reviews_tab_content (){
         ob_start();
         ?>
@@ -360,7 +422,7 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 
     }
 
-    // End single product page hooks
+    /*#### End Single Product Page Hooks #####*/
 
 
 
