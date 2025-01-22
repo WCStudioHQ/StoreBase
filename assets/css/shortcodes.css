@@ -1625,16 +1625,16 @@
 }
 
 .flexslider.style-1 .flex-control-thumbs {
-	margin: 23px 0px 0px 0px;
+	margin: 23px 0px 10px 0px;
 }
 
 .flexslider.style-1 .flex-control-thumbs li {
-	margin-right: 27px;
+	margin: 15px;
 }
 
-.flexslider.style-1 .flex-control-thumbs li:last-child {
-	margin: 0px;
-}
+/*.flexslider.style-1 .flex-control-thumbs li:last-child {*/
+/*	margin: 0px;*/
+/*}*/
 
 
 /* Style 2 */
@@ -1670,7 +1670,7 @@
 
 /* Price */
 .product-detail .price {
-	margin-top: 19px;
+	margin: 19px 0px;
 }
 
 .product-detail .price del,
