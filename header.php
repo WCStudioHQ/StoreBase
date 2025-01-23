@@ -51,11 +51,7 @@
                 <ul class="menu-extra">
                     <li class="box-search">
                         <a class="icon_search header-search-icon" href="#"></a>
-                        <form role="search" method="get" class="header-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                            <input type="search" class="header-search-field" placeholder="Search for products..." value="<?php echo get_search_query(); ?>" name="s" />
-                            <input type="hidden" name="post_type" value="product" />
-                            <button type="submit" class="header-search-submit" title="Search"><?php esc_html_e( 'Search', 'storebase' ); ?></button>
-                        </form>
+                        <?php get_search_form(); ?>
                     </li>
                     <li class="box-login">
                         <?php if ( is_user_logged_in() ) : ?>
