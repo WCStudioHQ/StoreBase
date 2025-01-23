@@ -29,3 +29,39 @@
     margin-top: 20px;
 }
 
+/*single page variation table design*/
+.content-detail .variations tbody {
+     display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap:20px
+}
+.content-detail .variations tbody tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.content-detail .variations tbody tr td {
+    width: 70%;
+}
+.content-detail .variations tbody tr th {
+    width: 30%;
+    text-align: start;
+}
+
+.content-detail .product_meta {
+    margin:20px 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+/*woocommerce breadcrumbs custom style*/
+.woocommerce-breadcrumb {
+    margin:15px 0;
+}

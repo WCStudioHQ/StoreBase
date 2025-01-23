@@ -15,6 +15,7 @@
  * @link https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
  *
  * @return void
+ * @since 1.0.0
  */
 function storebase_woocommerce_setup()
 {
@@ -43,6 +44,7 @@ add_action('after_setup_theme', 'storebase_woocommerce_setup');
  * WooCommerce specific scripts & stylesheets.
  *
  * @return void
+ * @since 1.0.0
  */
 function storebase_woocommerce_scripts()
 {
@@ -63,7 +65,9 @@ function storebase_woocommerce_scripts()
     if (is_product()) {
         wp_enqueue_script('wc-add-to-cart-variation');
     }
+
 }
+
 
 add_action('wp_enqueue_scripts', 'storebase_woocommerce_scripts');
 
@@ -93,27 +97,10 @@ function storebase_woocommerce_active_body_class($classes)
 add_filter('body_class', 'storebase_woocommerce_active_body_class');
 
 /**
- * Related Products Args.
- *
- * @param array $args related products args.
- * @return array $args related products args.
- */
-function storebase_woocommerce_related_products_args($args)
-{
-    $defaults = array(
-        'posts_per_page' => 3,
-        'columns' => 3,
-    );
-
-    $args = wp_parse_args($defaults, $args);
-
-    return $args;
-}
-
-add_filter('woocommerce_output_related_products_args', 'storebase_woocommerce_related_products_args');
-
-/**
  * Remove default WooCommerce wrapper.
+ * Remove the default WooCommerce wrapper in order to use the theme's own wrapper.
+ * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
+ * @since 1.0.0
  */
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
@@ -139,6 +126,7 @@ if (!function_exists('storebase_woocommerce_wrapper_before')) {
      * Wraps all WooCommerce content in wrappers which match the theme markup.
      *
      * @return void
+     * @since 1.0.0
      */
     function storebase_woocommerce_wrapper_before()
     {
@@ -159,6 +147,7 @@ if (!function_exists('storebase_woocommerce_wrapper_after')) {
      * Closes the wrapping divs.
      *
      * @return void
+     * @since 1.0.0
      */
     function storebase_woocommerce_wrapper_after()
     {
@@ -181,8 +170,15 @@ add_filter('woocommerce_show_page_title', '__return_null');
 /**
  * add custom filter in shop page for woocommerce
  * @param $quer
+ * @return void
+ * @since 1.0.0
  */
 if (!function_exists('storebase_custom_filter')) {
+    /*
+     * Add custom filter in shop page for woocommerce
+     * @return void
+     * @since 1.0.0
+     */
     function storebase_custom_filter()
     {
         if (is_shop()) {
@@ -203,6 +199,9 @@ add_action('woocommerce_before_shop_loop', 'storebase_custom_filter', 10);
 
 /**
  * Add container before shop loop
+ * @return void
+ * @since 1.0.0
+ *
  */
 function storebase_add_container_before_shop_loop()
 {
@@ -216,6 +215,8 @@ function storebase_add_container_before_shop_loop()
 add_action('woocommerce_before_shop_loop', 'storebase_add_container_before_shop_loop', 15);
 /**
  * Add container after shop loop
+ * @return void
+ * @since 1.0.0
  */
 function storebase_add_container_after_shop_loop()
 {
@@ -367,131 +368,206 @@ if (!function_exists('storebase_woocommerce_header_cart')) {
      * @since 1.0.0
      *
      */
-    function storebase_remove_woocommerce_sidebar_on_single_product()
-    {
-        if (is_product()) {
-            remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+    if (!function_exists('storebase_remove_woocommerce_sidebar_on_single_product')) {
+        function storebase_remove_woocommerce_sidebar_on_single_product()
+        {
+            if (is_product()) {
+                remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+            }
         }
     }
-
     add_action('template_redirect', 'storebase_remove_woocommerce_sidebar_on_single_product');
+    /*
+     * Remove WooCommerce Default Actions
+     * @return void
+     * @since 1.0.0
+     *
+     */
 
-    function storebase_remove_single_product_page_action()
-    {
-        if(is_product()){
-            remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
-            remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
-            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+    if (!function_exists('storebase_remove_single_product_page_action')) {
+        function storebase_remove_single_product_page_action()
+        {
+            if (is_product()) {
+                remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+                remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+                remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+                remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+                remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+            }
+
         }
-
     }
+
     add_action('wp', 'storebase_remove_single_product_page_action', 5);
-    function storebase_add_single_product_page_action(){
-        if(is_product()){
-            add_action('woocommerce_before_single_product_summary', 'storebase_add_custom_html_content', 6);
-            add_action('woocommerce_single_product_summary', 'storebase_woocommerce_template_single_title', 5);
-            add_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
-            add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 10);
-            add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
-            add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
-            add_action('woocommerce_single_product_summary', 'storebase_add_close_custom_html_container', 50);
+
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     *
+     */
+
+    if (!function_exists('storebase_add_single_product_page_action')) {
+        function storebase_add_single_product_page_action()
+        {
+            if (is_product()) {
+                add_action('woocommerce_before_single_product_summary', 'storebase_add_custom_html_content', 6);
+                add_action('woocommerce_single_product_summary', 'storebase_woocommerce_template_single_title', 5);
+                add_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+                add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 10);
+                add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+                add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+                add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+                add_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+                add_action('woocommerce_single_product_summary', 'storebase_add_close_custom_html_container', 50);
+                add_action('woocommerce_after_single_product_summary', 'storebase_woocommerce_output_product_data_tabs', 10);
+                add_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+                add_action('woocommerce_after_single_product_summary', 'storebase_woocommerce_output_related_products', 20);
+            }
         }
     }
     add_action('wp', 'storebase_add_single_product_page_action', 5);
-    function storebase_add_custom_before_single_product_summary()
-    {
-        if (is_product()) {
-            global $product;
-            $post_thumbnail_id = $product->get_image_id();
-            ?>
-               <div class="row">
-            <div class="col-md-6">
-                <div class="wrap-flexslider">
-                    <div class="inner">
-                        <div class="flexslider style-1 has-relative">
-                            <ul class="slides">
-                                <?php if (has_post_thumbnail()) :
-                                    $post_thumbnail_id = get_post_thumbnail_id(); ?>
-                                    <li data-thumb="<?php echo esc_url(wp_get_attachment_image_url($post_thumbnail_id, 'woocommerce_thumbnail')); ?>">
-                                        <img src="<?php echo esc_url(wp_get_attachment_image_url($post_thumbnail_id, 'woocommerce_single')); ?>"
-                                             alt="<?php echo esc_attr(get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true)); ?>">
-                                        <div class="flat-icon style-1">
-                                            <a href="<?php echo esc_url(wp_get_attachment_image_url($post_thumbnail_id, 'full')); ?>"
-                                               class="zoom-popup"><span class="fa fa-search-plus"></span></a>
-                                        </div>
-                                    </li>
-                                <?php endif; ?>
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     * @param $rating_html
+     */
 
-                                <?php
-                                $gallery_image_ids = get_post_meta(get_the_ID(), '_product_image_gallery', true);
-                                if (!empty($gallery_image_ids)) :
-                                    $gallery_image_ids = explode(',', $gallery_image_ids);
-                                    foreach ($gallery_image_ids as $gallery_image_id) : ?>
-                                        <li data-thumb="<?php echo esc_url(wp_get_attachment_image_url($gallery_image_id, 'woocommerce_thumbnail')); ?>">
-                                            <img src="<?php echo esc_url(wp_get_attachment_image_url($gallery_image_id, 'woocommerce_single')); ?>"
-                                                 alt="<?php echo esc_attr(get_post_meta($gallery_image_id, '_wp_attachment_image_alt', true)); ?>">
+    if (!function_exists('woocommerce_before_single_product_summary')) {
+        function storebase_add_custom_before_single_product_summary()
+        {
+            if (is_product()) {
+                global $product;
+                $post_thumbnail_id = $product->get_image_id();
+                ?>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="wrap-flexslider">
+                        <div class="inner">
+                            <div class="flexslider style-1 has-relative">
+                                <ul class="slides">
+                                    <?php if (has_post_thumbnail()) :
+                                        $post_thumbnail_id = get_post_thumbnail_id(); ?>
+                                        <li data-thumb="<?php echo esc_url(wp_get_attachment_image_url($post_thumbnail_id, 'woocommerce_thumbnail')); ?>">
+                                            <img src="<?php echo esc_url(wp_get_attachment_image_url($post_thumbnail_id, 'woocommerce_single')); ?>"
+                                                 alt="<?php echo esc_attr(get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true)); ?>">
                                             <div class="flat-icon style-1">
-                                                <a href="<?php echo esc_url(wp_get_attachment_image_url($gallery_image_id, 'full')); ?>"
+                                                <a href="<?php echo esc_url(wp_get_attachment_image_url($post_thumbnail_id, 'full')); ?>"
                                                    class="zoom-popup"><span class="fa fa-search-plus"></span></a>
                                             </div>
                                         </li>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+                                    <?php endif; ?>
+
+                                    <?php
+                                    $gallery_image_ids = get_post_meta(get_the_ID(), '_product_image_gallery', true);
+                                    if (!empty($gallery_image_ids)) :
+                                        $gallery_image_ids = explode(',', $gallery_image_ids);
+                                        foreach ($gallery_image_ids as $gallery_image_id) : ?>
+                                            <li data-thumb="<?php echo esc_url(wp_get_attachment_image_url($gallery_image_id, 'woocommerce_thumbnail')); ?>">
+                                                <img src="<?php echo esc_url(wp_get_attachment_image_url($gallery_image_id, 'woocommerce_single')); ?>"
+                                                     alt="<?php echo esc_attr(get_post_meta($gallery_image_id, '_wp_attachment_image_alt', true)); ?>">
+                                                <div class="flat-icon style-1">
+                                                    <a href="<?php echo esc_url(wp_get_attachment_image_url($gallery_image_id, 'full')); ?>"
+                                                       class="zoom-popup"><span class="fa fa-search-plus"></span></a>
+                                                </div>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+
+                            <ul class="flex-direction-nav">
+                                <li class="flex-nav-prev">
+                                    <a class="flex-prev" href="#"><?php esc_html_e('Previous', 'storebase'); ?></a>
+                                </li>
+                                <li class="flex-nav-next">
+                                    <a class="flex-next" href="#"><?php esc_html_e('Next', 'storebase'); ?></a>
+                                </li>
                             </ul>
-                        </div>
-
-                        <ul class="flex-direction-nav">
-                            <li class="flex-nav-prev">
-                                <a class="flex-prev" href="#"><?php esc_html_e('Previous', 'storebase'); ?></a>
-                            </li>
-                            <li class="flex-nav-next">
-                                <a class="flex-next" href="#"><?php esc_html_e('Next', 'storebase'); ?></a>
-                            </li>
-                        </ul>
-                    </div><!-- /.flexslider -->
+                        </div><!-- /.flexslider -->
+                    </div>
                 </div>
-            </div>
 
+                <?php
+            }
+        }
+    }
+    add_action('woocommerce_before_single_product_summary', 'storebase_add_custom_before_single_product_summary', 6);
+
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     * @param $rating_html
+     */
+
+if (!function_exists('storebase_add_custom_html_content')){
+function storebase_add_custom_html_content()
+{
+    ?>
+    <div class="col-md-6">
+    <div class="product-detail">
+    <div class="inner">
+    <div class="content-detail">
+    <?php
+
+}
+}
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     * @param $rating_html
+     *
+     */
+
+    if (!function_exists('storebase_woocommerce_template_single_title')) {
+        function storebase_woocommerce_template_single_title()
+        {
+            ?>
+            <h2 class="product-title"><?php echo the_title() ?></h2>
             <?php
         }
     }
 
-    add_action('woocommerce_before_single_product_summary', 'storebase_add_custom_before_single_product_summary', 6);
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     * @param $rating_html
+     *
+     */
 
- function storebase_add_custom_html_content()
- {
-         ?>
-                <div class="col-md-6">
-                        <div class="product-detail">
-                        	<div class="inner">
-                        		<div class="content-detail">
-         <?php
+    if (!function_exists('storebase_add_close_custom_html_container')) {
 
- }
-
-    function storebase_woocommerce_template_single_title()
-    {
-        ?>
-        <h2 class="product-title"><?php echo the_title() ?></h2>
-        <?php
+        function storebase_add_close_custom_html_container()
+        {
+            ?>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <?php
+        }
     }
 
-    function storebase_add_close_custom_html_container(){
-        ?>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        <?php
-    }
-        function storebase_woocommerce_rating_html($rating_html, $rating, $count) {
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     */
+    if (!function_exists('storebase_woocommerce_rating_html')) {
+        function storebase_woocommerce_rating_html($rating_html, $rating, $count)
+        {
             if ($rating > 0) {
                 $rating_html = '<div class="flat-star style-1">';
                 for ($i = 1; $i <= 5; $i++) {
@@ -509,95 +585,188 @@ if (!function_exists('storebase_woocommerce_header_cart')) {
 
             return $rating_html;
         }
-
-      add_filter('woocommerce_product_get_rating_html', 'storebase_woocommerce_rating_html', 10, 3);
-    function storebase_woocommerce_short_description($post_excerpt)
-    {
-        return '<p>' . $post_excerpt . '</p>';
     }
-     add_filter('woocommerce_short_description', 'storebase_woocommerce_short_description', 10, 1);
+    add_filter('woocommerce_product_get_rating_html', 'storebase_woocommerce_rating_html', 10, 3);
+    /*
+     * Add Custom Actions
+     * @return void
+     *
+     */
+    if (!function_exists('storebase_woocommerce_short_description')) {
+
+        function storebase_woocommerce_short_description($post_excerpt)
+        {
+            return '<p>' . $post_excerpt . '</p>';
+        }
+    }
+
+    add_filter('woocommerce_short_description', 'storebase_woocommerce_short_description', 10, 1);
 
 
     /*
-     * Customize Product Tabs
-     * @param array $tabs
-     * @return array $tabs
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
      */
-    function storebase_customize_product_tabs($tabs)
-    {
-        if (isset($tabs['description'])) {
-            $tabs['description']['callback'] = 'custom_description_tab_content';
-        }
 
-        if (isset($tabs['additional_information'])) {
-            $tabs['additional_information']['callback'] = 'custom_additional_information_tab_content';
-        }
+    if (!function_exists('storebase_woocommerce_output_product_data_tabs')) {
+        function storebase_woocommerce_output_product_data_tabs()
+        {
+            global $product;
+            $tabs = apply_filters('woocommerce_product_tabs', array());
+            if (empty($tabs)) {
+                return;
+            }
+            ?>
+            <section class="flat-row shop-detail-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="flat-tabs style-1 has-border">
+                                <div class="inner">
+                                    <ul class="menu-tab">
+                                        <?php foreach ($tabs as $key => $tab) : ?>
+                                            <li class="active">
+                                                <a href="#<?php echo esc_attr($key); ?>" class="nav-link"
+                                                   data-toggle="tab"
+                                                   role="tab"><?php echo esc_html(apply_filters('woocommerce_product_' . $key . '_tab_title', $tab['title'], $key)); ?></a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <div class="content-tab">
+                                        <?php foreach ($tabs as $key => $tab) : ?>
+                                            <div class="content-inner" id="<?php echo esc_attr($key); ?>"
+                                                 role="tabpanel">
+                                                <?php
+                                                if (isset($tab['callback'])) {
+                                                    call_user_func($tab['callback'], $key, $tab);
+                                                }
+                                                ?>
+                                            </div>
+                                        <?php endforeach; ?>
 
-        if (isset($tabs['reviews'])) {
-            $tabs['reviews']['callback'] = 'custom_reviews_tab_content';
-        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.shop-detail-content -->
+            <?php
 
-        return $tabs;
+        }
+    }
+
+    /*
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
+     * @param $tabs
+     * @return mixed
+     */
+
+    if (!function_exists('storebase_customize_product_tabs')) {
+        function storebase_customize_product_tabs($tabs)
+        {
+            if (isset($tabs['description'])) {
+                $tabs['description']['callback'] = 'storebase_woocommerce_description_tab_content';
+            }
+
+            if (isset($tabs['additional_information'])) {
+                $tabs['additional_information']['callback'] = 'storebase_woocommerce_additional_information_tab_content';
+            }
+
+            if (isset($tabs['reviews'])) {
+                $tabs['reviews']['callback'] = 'storebase_woocommerce_reviews_tab_content';
+            }
+
+            return $tabs;
+        }
     }
 
     add_filter('woocommerce_product_tabs', 'storebase_customize_product_tabs', 98);
-    /*
-     * Customize Product Tabs Content
-     * @return void
-     * @since 1.0.0
-     */
-    function custom_description_tab_content()
-    {
-        ob_start();
-        ?>
-        <div class="p-4">
-            <?php the_content(); ?>
-        </div>
-        <?php
-        echo ob_get_clean();
-    }
 
     /*
      * Customize Product Tabs Content
      * @return void
      * @since 1.0.0
+     *
      */
-    function custom_additional_information_tab_content()
-    {
-        global $product;
 
-        if (!$product) {
-            return;
+    if (!function_exists('storebase_woocommerce_description_tab_content')) {
+        function storebase_woocommerce_description_tab_content()
+        {
+            ob_start();
+            ?>
+            <div class="p-4">
+                <?php the_content(); ?>
+            </div>
+            <?php
+            echo ob_get_clean();
         }
-        $weight = $product->get_weight() ? $product->get_weight() . ' kg' : 'N/A';
-        $dimensions = $product->get_dimensions() ? $product->get_dimensions() . ' cm' : 'N/A';
-        $material = $product->get_meta('material') ?: 'Not specified';
-        $sizes = $product->get_meta('sizes') ?: 'One Size';
-        ob_start();
-        ?>
-        <div class="inner max-width-40 p-4">
-            <table>
-                <tr>
-                    <td><?php esc_html_e('Weight', 'storebase'); ?></td>
-                    <td><?php echo esc_html($weight); ?></td>
-                </tr>
-                <tr>
-                    <td><?php esc_html_e('Dimensions', 'storebase'); ?></td>
-                    <td><?php echo esc_html($dimensions); ?></td>
-                </tr>
-                <tr>
-                    <td><?php esc_html_e('Materials', 'storebase'); ?></td>
+    }
+    /*
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
+     */
 
-                    <td><?php echo esc_html($material); ?></td>
-                </tr>
-                <tr>
-                    <td><?php esc_html_e('Size', 'storebase'); ?></td>
-                    <td><?php echo esc_html($sizes); ?></td>
-                </tr>
-            </table>
-        </div>
-        <?php
-        echo ob_get_clean();
+    if (!function_exists('storebase_woocommerce_additional_information_tab_content')) {
+        function storebase_woocommerce_additional_information_tab_content()
+        {
+            global $product;
+
+            if (!$product) {
+                return;
+            }
+            $weight = $product->get_weight() ? $product->get_weight() . ' kg' : 'N/A';
+            $dimensions = $product->get_dimensions() ? $product->get_dimensions() . ' cm' : 'N/A';
+            $material = $product->get_meta('material') ?: 'Not specified';
+            $sizes = $product->get_meta('sizes') ?: 'One Size';
+            ob_start();
+            ?>
+            <div class="inner max-width-40 p-4">
+                <table>
+                    <tr>
+                        <td><?php esc_html_e('Weight', 'storebase'); ?></td>
+                        <td><?php echo esc_html($weight); ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php esc_html_e('Dimensions', 'storebase'); ?></td>
+                        <td><?php echo esc_html($dimensions); ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php esc_html_e('Materials', 'storebase'); ?></td>
+
+                        <td><?php echo esc_html($material); ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php esc_html_e('Size', 'storebase'); ?></td>
+                        <td><?php echo esc_html($sizes); ?></td>
+                    </tr>
+                </table>
+            </div>
+            <?php
+            echo ob_get_clean();
+        }
+    }
+    /*
+     * Customize Product Tabs Content
+     * @return void
+     * @since 1.0.0
+     */
+    if (!function_exists('storebase_woocommerce_reviews_tab_content')) {
+        function storebase_woocommerce_reviews_tab_content()
+        {
+            ob_start();
+            ?>
+            <div class="p-4">
+                <?php comments_template(); ?>
+            </div>
+            <?php
+            echo ob_get_clean();
+
+        }
     }
 
     /*
@@ -605,19 +774,98 @@ if (!function_exists('storebase_woocommerce_header_cart')) {
      * @return void
      * @since 1.0.0
      */
-    function custom_reviews_tab_content()
-    {
-        ob_start();
-        ?>
-        <div class="p-4">
-            <?php comments_template(); ?>
-        </div>
-        <?php
-        echo ob_get_clean();
 
+    if (!function_exists('storebase_woocommerce_output_related_products')) {
+        function storebase_woocommerce_output_related_products()
+        {
+            global $product;
+            if (!$product || !$product->exists()) {
+                return;
+            }
+            $related_product_count = get_theme_mod('storebase_related_products_count', 4);
+            $related_product_ids = wc_get_related_products($product->get_id(), $related_product_count);
+            if (empty($related_product_ids)) {
+                return;
+            }
+            $related_products = wc_get_products(array(
+                'include' => $related_product_ids,
+            ));
+
+            if ($related_products) : ?>
+                <section class="flat-row shop-related">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="title-section margin-bottom-55">
+                                    <?php
+                                    $heading = apply_filters('woocommerce_product_related_products_heading', __('Related products', 'storebase'));
+                                    if ($heading) : ?>
+                                        <h2 class="title"><?php echo esc_html($heading); ?></h2>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="product-content product-fourcolumn clearfix">
+                                    <ul class="product style2">
+                                        <?php foreach ($related_products as $related_product) : ?>
+                                            <li class="product-item">
+                                                <div class="product-thumb clearfix">
+                                                    <a href="<?php echo esc_url($related_product->get_permalink()); ?>">
+                                                        <?php echo $related_product->get_image('woocommerce_thumbnail'); ?>
+                                                    </a>
+                                                </div>
+                                                <div class="product-info clearfix pt-3">
+                                                    <span class="product-title"><?php echo esc_html($related_product->get_name()); ?></span>
+                                                    <div class="price">
+                                                        <?php echo $related_product->get_price_html(); ?>
+                                                    </div>
+                                                    <?php if ($related_product->get_type() === 'variable') : ?>
+                                                        <div class="product-variations">
+                                                            <span><?php _e('Multiple variations available', 'storebase'); ?></span>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="add-to-cart text-center">
+                                                    <a href="<?php echo esc_url($related_product->add_to_cart_url()); ?>"
+                                                       class="button add_to_cart_button">
+                                                        <?php echo esc_html($related_product->add_to_cart_text()); ?>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul><!-- /.product -->
+                                </div><!-- /.product-content -->
+
+                            </div>
+                        </div><!-- /.row -->
+                    </div>
+                </section>
+            <?php
+            endif;
+
+            wp_reset_postdata();
+        }
     }
-
-    /*#### End Single Product Page Hooks #####*/
-
+    /*
+     * Add Custom Actions
+     * @return void
+     * @since 1.0.0
+     * @param $rating_html
+     */
+    if (!function_exists('storebase_search_form')) {
+        function storebase_search_form()
+        {
+            $form = '<form role="search" method="get" class="header-search-form" action="' . esc_url(home_url('/')) . '">
+                            <input type="search" class="header-search-field" placeholder="Search for products..." value="' . get_search_query() . '" name="s" />
+                            <input type="hidden" name="post_type" value="product" />
+                            <button type="submit" class="header-search-submit" title="Search">' . esc_html__('Search', 'storebase') . '</button>
+                        </form>';
+            return $form;
+        }
+    }
+    add_filter('get_search_form', 'storebase_search_form');
 
 }
+
+
+
+
