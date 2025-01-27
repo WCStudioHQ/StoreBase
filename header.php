@@ -39,10 +39,10 @@
                         <?php if ( has_custom_logo() ) : ?>
                             <?php the_custom_logo(); ?>
                         <?php else : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri() .'/assets/images/logo.png');?>"
+                            <img src="<?php echo esc_url(get_template_directory_uri() .'/assets/images/storebase.png');?>"
                                  alt="<?php bloginfo( 'name' ); ?>"
                                  width="107" height="24"
-                                 data-retina="<?php echo esc_url(get_template_directory_uri() .'/assets/images/logo.png');?>"
+                                 data-retina="<?php echo esc_url(get_template_directory_uri() .'/assets/images/storebase.png');?>"
                                  data-width="107" data-height="24">
                         <?php endif; ?>
                     </a>
