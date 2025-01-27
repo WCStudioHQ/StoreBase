@@ -6,19 +6,23 @@
  *
  * @package StoreBase
  */
-
+$grid_post_columns = get_theme_mod('storebase_post_grid_columns', 3);
+$col_class = 'post col-lg-' . (12 / $grid_post_columns) . ' col-md-' . (12 / $grid_post_columns) . ' col-sm-6 col-12 mb-4';
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class($col_class); ?>>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="p-2">
+        <?php storebase_post_thumbnail(); ?>
+    </div>
     <header class="entry-header">
         <?php
-        if ( is_singular() ) :
-            the_title( '<h1 class="entry-title">', '</h1>' );
+        if (is_singular()) :
+            the_title('<h1 class="storebase-title">', '</h1>');
         else :
-            the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+            the_title('<h2 class="storebase-title py-2"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
         endif;
 
-        if ( 'post' === get_post_type() ) :
+        if ('post' === get_post_type()) :
             ?>
             <div class="entry-meta">
                 <?php
@@ -28,36 +32,30 @@
             </div><!-- .entry-meta -->
         <?php endif; ?>
     </header><!-- .entry-header -->
-
-    <?php storebase_post_thumbnail(); ?>
-
-    <div class="entry-content">
+    <div class="entry-content my-2">
         <?php
-        the_content(
-            sprintf(
-                wp_kses(
-                /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'storebase' ),
-                    array(
-                        'span' => array(
-                            'class' => array(),
-                        ),
-                    )
-                ),
-                wp_kses_post( get_the_title() )
-            )
-        );
+        $display_excerpt = get_theme_mod('storebase_display_excerpt', true);
+        $display_read_more = get_theme_mod('storebase_display_read_more', true);
+        if ($display_excerpt): ?>
+            <div>
+                <?php
+                echo wp_trim_words(get_the_excerpt(), 20, '.....');
+                if ($display_read_more): ?>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-danger btn-sm">
+                        <?php esc_html_e('Read More', 'storebase'); ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
 
+        <?php
         wp_link_pages(
             array(
-                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'storebase' ),
-                'after'  => '</div>',
+                'before' => '<div class="page-links">' . esc_html__('Pages:', 'storebase'),
+                'after' => '</div>',
             )
         );
         ?>
     </div><!-- .entry-content -->
 
-    <footer class="entry-footer">
-        <?php storebase_entry_footer(); ?>
-    </footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

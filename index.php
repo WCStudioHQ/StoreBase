@@ -27,7 +27,11 @@ get_header();
                 </header>
             <?php
             endif;
-
+       ?>
+        <section class="py-4">
+    <div class="container">
+        <div class="row">
+            <?php
             /* Start the Loop */
             while ( have_posts() ) :
                 the_post();
@@ -49,7 +53,9 @@ get_header();
 
         endif;
         ?>
-
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+        </section>
     </main><!-- #main -->
 
 <?php

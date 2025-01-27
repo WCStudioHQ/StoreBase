@@ -191,7 +191,7 @@ a {
 
 a:hover,
 a:focus {
-	color: #f63440;
+	color: #4E11E2;
 	text-decoration: none;
 	outline: 0;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -227,7 +227,7 @@ input[type="submit"] {
 	line-height: 30px;
     text-transform: uppercase;
     padding: 7px 26px;
-    background-color: #f63440;
+    background-color: #4E11E2;
     -webkit-transition: all 0.3s ease 0s;
        -moz-transition: all 0.3s ease 0s;
         -ms-transition: all 0.3s ease 0s;
@@ -282,7 +282,7 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus {
-	border: 1px solid #f63440;
+	border: 1px solid #4E11E2;
 	-webkit-box-shadow: none;
 	   -moz-box-shadow: none;
 			box-shadow: none;
@@ -662,7 +662,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 }
 
 .text-accent {
-	color: #f63440 !important;
+	color: #4E11E2 !important;
 }
 
 .text-333 {
@@ -923,7 +923,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 }
 #top-bar .top-bar-nav ul.sub-language li > a:hover,
 #top-bar a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Header
@@ -1042,7 +1042,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 	position: absolute;
 	top: 0px;
 	right: -3px;
-	background-color: #f63440;
+	background-color: #4E11E2;
 	text-align: center;
 	border-radius: 50%;
 	display: inline-block;
@@ -1055,7 +1055,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 
 .menu-extra li a:hover {
 	background: #eeeeee;
-	color: #f63440;
+	color: #4E11E2;
 }
 .menu-extra li .text-end a:hover {
 	background-color: unset;
@@ -1225,7 +1225,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 
 #mainnav > ul >li.active > a,
 #mainnav > ul >li > a:hover  {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Submenu */
@@ -1254,7 +1254,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
     left: 0;
     height: 2px;
     width: 100%;
-    background: #f63440;
+    background: #4E11E2;
 }
 
 #mainnav ul.submenu > li > a {
@@ -1341,7 +1341,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 .mobile-button:before, 
 .mobile-button:after, 
 .mobile-button span {
-	background-color: #f63440;
+	background-color: #4E11E2;
    	-webkit-transition: all 0.3s ease-in-out;
    	   -moz-transition: all 0.3s ease-in-out;
    	    -ms-transition: all 0.3s ease-in-out;
@@ -1425,7 +1425,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
  }
 
 #mainnav-mobi ul li.active > a {
- 	color: #f63440;
+ 	color: #4E11E2;
 }
 
 #mainnav-mobi ul li a {
@@ -1437,7 +1437,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 }
 
 #mainnav-mobi ul li a:hover {
- 	color: #f63440;
+ 	color: #4E11E2;
 }
 
 #mainnav-mobi > ul > li > a {
@@ -1490,7 +1490,7 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 }
 
 .breadcrumbs ul li a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Blog
@@ -1576,7 +1576,7 @@ article .entry-post {
 article .more-link a {
 	position: relative;
 	display: inline-block;
-	color: #f63440;
+	color: #4E11E2;
 	font-weight: 500;
 	line-height: 46px;
 }
@@ -1584,7 +1584,7 @@ article .more-link a {
 article .more-link a:after {
 	content: "\f101";
 	font-family: "FontAwesome";
-	color: #f63440;
+	color: #4E11E2;
 	position: absolute;
 	top: 0px;
 	right: -12px;
@@ -1784,7 +1784,7 @@ article .more-link a:hover:after {
 	bottom: 0;
 	width: 100%;
 	height: 1px;
-	background-color: #f63440;
+	background-color: #4E11E2;
 	left: 0;
 	margin-bottom: 8px;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -1796,7 +1796,7 @@ article .more-link a:hover:after {
 
 .post-wrap.style3 article .title-post:hover h2 a,
 .post-wrap.style3 article .meta-post li:hover a {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 .post-wrap.style3 article:hover .content-post {
@@ -1893,7 +1893,7 @@ article .more-link a:hover:after {
 }
 
 .post-wrap.style4  article .meta-post li a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Grid */
@@ -2038,7 +2038,7 @@ article .more-link a:hover:after {
 
 .direction .tags a:hover ,
 .direction .social-icon ul li a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 .direction .social-icon ul li {
@@ -2086,8 +2086,8 @@ article .more-link a:hover:after {
 	height: 35px;
 	line-height: 35px;
 	text-align: center;
-	color: #f63440;
-	border: 1px solid #f63440;
+	color: #4E11E2;
+	border: 1px solid #4E11E2;
 	background: transparent;
 }
 
@@ -2102,7 +2102,7 @@ article .more-link a:hover:after {
 }
 
 .direction ul.next-pre li .btn-default a:hover {
-	background: #f63440;
+	background: #4E11E2;
 	color: #ffffff;
 }
 
@@ -2174,7 +2174,7 @@ article .more-link a:hover:after {
 }
 
 .comments-area ol.comment-list article .reply a.comment-reply-link {
-	color: #f63440;
+	color: #4E11E2;
 	position: relative;
 }
 
@@ -2193,7 +2193,7 @@ article .more-link a:hover:after {
 }
 
 .comments-area ol.comment-list article .reply a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Children */
@@ -2232,7 +2232,7 @@ article .more-link a:hover:after {
 
 .comment-respond .comment-form-notify input[type="checkbox"]:checked +label:before {
 	content: "\f14a";
-	color: #f63440;
+	color: #4E11E2;
 }
 
 .comment-respond .comment-form p {
@@ -2285,8 +2285,8 @@ article .more-link a:hover:after {
 
 .flat-pagination li.active ,
 .flat-pagination li:hover {
-	background: #f63440;
-	border: 1px solid #f63440;
+	background: #4E11E2;
+	border: 1px solid #4E11E2;
 	color:  #ffffff;
 }
 
@@ -2421,7 +2421,7 @@ article .more-link a:hover:after {
 }
 
 .widget.widget-news-latest ul li h6 a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Widget tag */
@@ -2441,7 +2441,7 @@ article .more-link a:hover:after {
 
 .widget.widget_tag .tag-list a.active,
 .widget.widget_tag .tag-list a:hover {
-	background: #f63440;
+	background: #4E11E2;
 	color: #ffffff;
 }
 
@@ -2494,13 +2494,13 @@ article .more-link a:hover:after {
 }
 
 .flat-social li a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Rev Slider
 -------------------------------------------------------------- */
 .tp-bullets.custom .tp-bullet { background-color: #c5c5c5; border-radius: 50%; }
-.tp-bullets.custom .tp-bullet.selected { background-color: #f63440; }
+.tp-bullets.custom .tp-bullet.selected { background-color: #4E11E2; }
 
 /* Footer
 ---------------------------------------------------------------*/
@@ -2537,7 +2537,7 @@ article .more-link a:hover:after {
 }
 
 .widget.widget-link ul li a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Footer bottom
@@ -2558,7 +2558,7 @@ article .more-link a:hover:after {
 }
 
 .footer-bottom .copyright a:hover {
-	color: #f63440;
+	color: #4E11E2;
 }
 
 /* Go top
@@ -2569,7 +2569,7 @@ article .more-link a:hover:after {
 	bottom: 15px;   
    	width: 50px;
    	cursor: pointer;   
-    background-color: #f63440;
+    background-color: #4E11E2;
    	height: 50px;
    	border-radius: 50%;
    	line-height: 50px;
@@ -2682,7 +2682,7 @@ article .more-link a:hover:after {
     -webkit-animation: preloader-wave 1.6s linear infinite;
         animation: preloader-wave 1.6s linear infinite; 
     border-radius: 50%;
-    background: #f63440;
+    background: #4E11E2;
 }
 
 .loader:after {
@@ -2741,7 +2741,7 @@ article .more-link a:hover:after {
 }
 
 .switcher-container h2 a {
-   background-color: #f63440;
+   background-color: #4E11E2;
    display: block;
    position: absolute;
    right: -45px;
@@ -2866,8 +2866,8 @@ article .more-link a:hover:after {
 }
 
 .sw-even a:hover {
-	background-color: #f63440;
-	border: 1px solid #f63440;
+	background-color: #4E11E2;
+	border: 1px solid #4E11E2;
 	color: #fff !important;
 }
 
@@ -2915,7 +2915,7 @@ article .more-link a:hover:after {
 }
 
 .sw-odd .ws-colors #color1 {
-	background-color: #f63440;
+	background-color: #4E11E2;
 }
 
 .sw-odd .ws-colors #color2 {

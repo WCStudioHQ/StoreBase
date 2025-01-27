@@ -193,7 +193,7 @@ function storebase_customize_register($wp_customize)
     // Start Related product Section
     $wp_customize->add_section('storebase_related_products_section', array(
         'title' => __('Related Products', 'storebase'),
-        'priority' => 30,
+        'priority' => 15,
         'panel' => 'woocommerce',
     ));
     $wp_customize->add_setting('storebase_related_products_count', array(
@@ -213,6 +213,62 @@ function storebase_customize_register($wp_customize)
         ),
     ));
     // End Related product Section
+
+    // Start Post settings
+    $wp_customize->add_section('storebase_post_settings', array(
+        'title'    => __('Post Settings', 'storebase'),
+        'priority' => 20,
+    ));
+
+    // Add setting for number of columns
+    $wp_customize->add_setting('storebase_post_grid_columns', array(
+        'default'           => '3',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    // Add control for the number of columns
+    $wp_customize->add_control('storebase_post_grid_columns_control', array(
+        'label'   => __('Select Number of Columns', 'storebase'),
+        'section' => 'storebase_post_settings',
+        'settings' => 'storebase_post_grid_columns',
+        'type'    => 'select',
+        'choices' => array(
+            '1' => __('1 Column', 'storebase'),
+            '2' => __('2 Columns', 'storebase'),
+            '3' => __('3 Columns', 'storebase'),
+            '4' => __('4 Columns', 'storebase'),
+        ),
+    ));
+
+// Add setting for displaying the excerpt
+    $wp_customize->add_setting('storebase_display_excerpt', array(
+        'default'           => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ));
+
+// Add control for displaying the excerpt
+    $wp_customize->add_control('storebase_display_excerpt_control', array(
+        'label'    => __('Display Excerpt', 'storebase'),
+        'section'  => 'storebase_post_settings',
+        'settings' => 'storebase_display_excerpt',
+        'type'     => 'checkbox',
+    ));
+
+// Add setting for displaying the "Read More" button
+    $wp_customize->add_setting('storebase_display_read_more', array(
+        'default'           => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ));
+
+// Add control for displaying the "Read More" button
+    $wp_customize->add_control('storebase_display_read_more_control', array(
+        'label'    => __('Display Read More Button', 'storebase'),
+        'section'  => 'storebase_post_settings',
+        'settings' => 'storebase_display_read_more',
+        'type'     => 'checkbox',
+    ));
+
+    // End Post settings
 }
 
 add_action('customize_register', 'storebase_customize_register');
