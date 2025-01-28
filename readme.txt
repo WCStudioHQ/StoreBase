@@ -1,39 +1,41 @@
 === StoreBase ===
-
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
+Contributors: wcstudiohq,jalal02
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, woocommerce
+Tested up to: 6.7
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
-License URI: LICENSE
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A starter theme called StoreBase.
+A WooCommerce-compatible starter theme called StoreBase.
 
 == Description ==
 
-Your next WooCommerce theme.
+StoreBase is a starter theme built with WooCommerce in mind, designed to offer a solid foundation for creating your next eCommerce website. With support for custom backgrounds, logos, menus, threaded comments, and featured images, StoreBase gives you the tools to create a fully customizable and translation-ready website.
+
+Key Features:
+* WooCommerce compatibility for eCommerce functionality.
+* Lightweight and optimized for performance.
+* Customization support for easy branding.
+* Translation-ready for multilingual websites.
 
 == Installation ==
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+1. Go to **Appearance > Themes** in your WordPress admin panel and click the **Add New** button.
+2. Click **Upload Theme**, choose the theme’s `.zip` file, and click **Install Now**.
+3. Activate the theme to start using it immediately.
 
 == Frequently Asked Questions ==
 
-= Does this theme support any plugins? =
+= Does this theme support plugins? =
+Yes, StoreBase supports WooCommerce and Jetpack's Infinite Scroll functionality.
 
-StoreBase includes support for WooCommerce and for Infinite Scroll in Jetpack.
+= Is StoreBase translation-ready? =
+Yes, the theme is fully translation-ready and compatible with multilingual plugins.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
-* Initial release
+= 1.0.0 - January 28, 2025 =
+* Initial release.
 
 == Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+* StoreBase is based on the Underscores starter theme.

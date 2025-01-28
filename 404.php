@@ -9,52 +9,35 @@
 
 get_header();
 ?>
-
 	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'storebase' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'storebase' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'storebase' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$storebase_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'storebase' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$storebase_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
+	<div class="boxed">
+	<section class="flat-row flat-error">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="wrap-error text-center">
+						<div class="header-error">
+							<?php esc_html_e( '404', 'storebase' ); ?>
+						</div>
+						<div class="content-error">
+							<h2><?php esc_html_e( 'Oops, Page Not Found!', 'storebase' ); ?></h2>
+							<p>
+								<?php
+								printf(
+								/* translators: %s: Homepage link */
+									esc_html__( 'It looks like nothing was found at this location. Click %s to return Homepage.', 'storebase' ),
+									'<a href="' . esc_url( home_url( '/' ) ) . '" class="btn-error">' . esc_html__( 'here', 'storebase' ) . '</a>'
+								);
+								?>
+							</p>
+						</div>
+					</div><!-- /.wrap-error -->
+				</div><!-- /.col-md-12 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section><!-- /.flat-row -->
+	<div>
+	</main>
 <?php
 get_footer();
+

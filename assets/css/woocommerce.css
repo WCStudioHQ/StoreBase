@@ -1,0 +1,72 @@
+
+/*
+* Shop page view cart button custom style
+ */
+.product .product-item .add-to-cart .added_to_cart {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background-color: #f63440;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    font-size: 15px;
+   z-index: 9999;
+
+}
+
+/*
+* My account page navigation custom style
+ */
+
+.woocommerce-MyAccount-navigation ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/*single page variation table design*/
+.content-detail .variations tbody {
+     display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap:20px
+}
+.content-detail .variations tbody tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.content-detail .variations tbody tr td {
+    width: 70%;
+}
+.content-detail .variations tbody tr th {
+    width: 30%;
+    text-align: start;
+}
+
+.content-detail .product_meta {
+    margin:20px 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+/*woocommerce breadcrumbs custom style*/
+.woocommerce-breadcrumb {
+    margin:15px 0;
+}
+
+.post-navigation{
+    margin-top: 20px;
+    padding: 7px;
+}

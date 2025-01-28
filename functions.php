@@ -7,9 +7,9 @@
  * @package StoreBase
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( '_STOREBASE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_STOREBASE_VERSION', '1.0.0' );
 }
 
 /**
@@ -49,10 +49,10 @@ function storebase_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'storebase' ),
+			'primary' => __( 'Primary Menu', 'storebase' ),
+			'footer'  => __( 'Footer Menu', 'storebase' ),
 		)
 	);
-
 	/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.
@@ -100,6 +100,7 @@ function storebase_setup() {
 		)
 	);
 }
+
 add_action( 'after_setup_theme', 'storebase_setup' );
 
 /**
@@ -112,6 +113,7 @@ add_action( 'after_setup_theme', 'storebase_setup' );
 function storebase_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'storebase_content_width', 640 );
 }
+
 add_action( 'after_setup_theme', 'storebase_content_width', 0 );
 
 /**
@@ -131,28 +133,120 @@ function storebase_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+	// Register 3 footer widget  for link
+	for ( $i = 1; $i <= 3; $i++ ) {
+		register_sidebar(
+			array(
+				// translators: %d is the widget number.
+				'name'          => sprintf( esc_html__( 'Footer Widget Area %d', 'storebase' ), $i ),
+				'id'            => "footer-$i",
+				'before_widget' => '<div class="widget widget-link">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
+	}
+	// Footer widget for Branding
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Widget Area for Branding', 'storebase' ),
+			'id'            => 'footer-brand',
+			'before_widget' => '<div class="widget widget-brand">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		)
+	);
 }
+
 add_action( 'widgets_init', 'storebase_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
+ *
+ * @return void
+ * @since 1.0.0
  */
 function storebase_scripts() {
-	wp_enqueue_style( 'storebase-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'storebase-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'storebase-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_style( 'storebase-style', get_stylesheet_uri(), array(), _STOREBASE_VERSION );
+	wp_enqueue_style( 'storebase-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), _STOREBASE_VERSION );
+	wp_enqueue_style( 'storebase-main', get_template_directory_uri() . '/assets/css/main-style.css', array(), _STOREBASE_VERSION, 'all' );
+	wp_enqueue_style( 'storebase-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), _STOREBASE_VERSION );
+	wp_enqueue_style( 'storebase-color', get_template_directory_uri() . '/assets/css/colors/color1.css', array(), _STOREBASE_VERSION );
+	wp_enqueue_style( 'storebase-animation', get_template_directory_uri() . '/assets/css/animate.css', array(), _STOREBASE_VERSION );
+	// Start script
+	wp_enqueue_script( 'storebase-jquery', get_template_directory_uri() . '/assets/js/jquery.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-tether', get_template_directory_uri() . '/assets/js/tether.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-easing', get_template_directory_uri() . '/assets/js/jquery.easing.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-parallax', get_template_directory_uri() . '/assets/js/parallax.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-waypoints', get_template_directory_uri() . '/assets/js/jquery-waypoints.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-countTo', get_template_directory_uri() . '/assets/js/jquery-countTo.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-countdown', get_template_directory_uri() . '/assets/js/jquery.countdown.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider-min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-img-loaded', get_template_directory_uri() . '/assets/js/images-loaded.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-isotope', get_template_directory_uri() . '/assets/js/jquery.isotope.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-magnific', get_template_directory_uri() . '/assets/js/magnific.popup.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-hoverdir', get_template_directory_uri() . '/assets/js/jquery.hoverdir.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-owl', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-equalize', get_template_directory_uri() . '/assets/js/equalize.min.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-jquery-ui', get_template_directory_uri() . '/assets/js/jquery-ui.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-cookie', get_template_directory_uri() . '/assets/js/jquery.cookie.js', array(), _STOREBASE_VERSION, true );
+	wp_enqueue_script( 'storebase-main-js', get_template_directory_uri() . '/assets/js/main.js', array(), _STOREBASE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'storebase_scripts' );
+/**
+ *StoreBase custom post pagination
+ *
+ * @return void
+ * @since 1.0.0
+ */
+if ( ! function_exists( 'storebase_post_pagination' ) ) {
+	function storebase_post_pagination() {
+		global $wp_query;
+		if ( $wp_query->max_num_pages > 1 ) {
+			$big  = 999999999;
+			$base = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
+
+			$pagination_links = paginate_links(
+				array(
+					'base'      => $base,
+					'format'    => '?paged=%#%',
+					'current'   => max( 1, get_query_var( 'paged' ) ),
+					'total'     => $wp_query->max_num_pages,
+					'prev_text' => '<i class="fa fa-angle-left"></i>',
+					'next_text' => '<i class="fa fa-angle-right"></i>',
+					'type'      => 'array',
+				)
+			);
+			if ( ! empty( $pagination_links ) ) {
+				echo '<div class="custom-post-pagination text-center margin-top-11 clearfix" aria-label="' . esc_attr__( 'Post Pagination', 'storebase' ) . '">';
+				echo '<ul class="flat-pagination">';
+				foreach ( $pagination_links as $link ) {
+					if ( strpos( $link, 'current' ) !== false ) {
+						echo '<li class="active">' . $link . '</li>';
+					} else {
+						echo '<li>' . $link . '</li>';
+					}
+				}
+				echo '</ul>';
+				echo '</div>';
+			}
+		}
+	}
+}
 
 /**
- * Implement the Custom Header feature.
+ * Navigation menu sections
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/class-storebase-walker-nav-menu.php';
 
 /**
  * Custom template tags for this theme.
