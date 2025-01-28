@@ -1,4 +1,4 @@
-# Copyright (C) 2024 WC Studio
+# Copyright (C) 2025 WC Studio
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-18T09:28:57+00:00\n"
+"POT-Creation-Date: 2025-01-28T10:19:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: storebase\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "Your next WooCommerce theme."
+msgid "StoreBase is a starter theme built with WooCommerce in mind, designed to offer a solid foundation for creating your next eCommerce website. With support for custom backgrounds, logos, menus, threaded comments, and featured images, StoreBase gives you the tools to create a fully customizable and translation-ready website."
 msgstr ""
 
 #. Author of the theme
@@ -39,61 +39,21 @@ msgstr ""
 msgid "https://wcstudio.com"
 msgstr ""
 
-#: 404.php:19
+#: 404.php:20
 msgid "404"
 msgstr ""
 
-#: 404.php:22
+#: 404.php:23
 msgid "Oops, Page Not Found!"
 msgstr ""
 
 #. translators: %s: Homepage link
-#: 404.php:27
+#: 404.php:28
 msgid "It looks like nothing was found at this location. Click %s to return Homepage."
 msgstr ""
 
-#: 404.php:28
+#: 404.php:29
 msgid "here"
-msgstr ""
-
-#: archive-product.php:53
-msgid "Filters"
-msgstr ""
-
-#: archive-product.php:60
-msgid "Default sorting"
-msgstr ""
-
-#: archive-product.php:61
-msgid "Sort by popularity"
-msgstr ""
-
-#: archive-product.php:62
-msgid "Sort by average rating"
-msgstr ""
-
-#: archive-product.php:63
-msgid "Sort by latest"
-msgstr ""
-
-#: archive-product.php:64
-msgid "Sort by price: low to high"
-msgstr ""
-
-#: archive-product.php:65
-msgid "Sort by price: high to low"
-msgstr ""
-
-#: archive-product.php:112
-msgid "No products found"
-msgstr ""
-
-#: archive-product.php:131
-msgid "&laquo;"
-msgstr ""
-
-#: archive-product.php:132
-msgid "&raquo;"
 msgstr ""
 
 #. translators: 1: title.
@@ -161,194 +121,272 @@ msgstr ""
 msgid "Returns"
 msgstr ""
 
-#: footer.php:78
-msgid "112 Kingdom, NA 12, New York"
-msgstr ""
-
-#: footer.php:79
-msgid "+12 345 678 910"
-msgstr ""
-
 #: footer.php:80
-msgid "infor.deercreative@gmail.com"
+msgid "112 Mirpur, Dhaka, Bangladesh"
 msgstr ""
 
-#: footer.php:98
-#: inc/customizer.php:49
-#: inc/customizer.php:218
+#: footer.php:81
+msgid "+880 1737 345 456"
+msgstr ""
+
+#: footer.php:82
+msgid "wcstudio@gmail.com"
+msgstr ""
+
+#: footer.php:100
+#: inc/customizer.php:50
+#: inc/customizer.php:303
 msgid "Copyright ©2025 powered by WordPress. Theme by WC Studio."
 msgstr ""
 
-#: functions.php:51
+#: functions.php:52
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:52
+#: functions.php:53
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:129
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:126
+#: functions.php:131
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:137
+#: functions.php:142
 msgid "Footer Widget Area %d"
 msgstr ""
 
-#: functions.php:147
+#: functions.php:152
 msgid "Footer Widget Area for Branding"
 msgstr ""
 
-#: header.php:57
-msgid "Search"
+#: functions.php:227
+msgid "Post Pagination"
 msgstr ""
 
-#: header.php:101
+#: header.php:75
+msgid "No items in your cart"
+msgstr ""
+
+#: header.php:97
 msgid "Item Total"
 msgstr ""
 
-#: header.php:109
+#: header.php:105
 msgid "Remove this item"
 msgstr ""
 
-#: header.php:112
+#: header.php:108
 msgid "Remove"
 msgstr ""
 
-#: header.php:123
+#: header.php:119
 msgid "View Cart"
 msgstr ""
 
-#: header.php:126
+#: header.php:122
 msgid "Checkout"
 msgstr ""
 
-#: inc/customizer.php:39
+#: inc/customizer.php:40
 msgid "Footer Settings"
 msgstr ""
 
-#: inc/customizer.php:41
+#: inc/customizer.php:42
 msgid "Customize the footer text displayed at the bottom of your site."
 msgstr ""
 
-#: inc/customizer.php:59
+#: inc/customizer.php:60
 msgid "Footer Bottom "
 msgstr ""
 
-#: inc/customizer.php:63
+#: inc/customizer.php:64
 msgid "Edit the footer text displayed at the bottom of your site."
 msgstr ""
 
-#: inc/customizer.php:84
+#: inc/customizer.php:85
 msgid "Hero Section"
 msgstr ""
 
-#: inc/customizer.php:86
+#: inc/customizer.php:87
 msgid "Customize the hero section."
 msgstr ""
 
-#: inc/customizer.php:94
-#: inc/customizer.php:103
+#: inc/customizer.php:95
+#: inc/customizer.php:104
 msgid "Subheadline"
 msgstr ""
 
-#: inc/customizer.php:114
+#: inc/customizer.php:115
 msgid "Enter Your Headline Here"
 msgstr ""
 
-#: inc/customizer.php:123
+#: inc/customizer.php:124
 msgid "Headline"
 msgstr ""
 
-#: inc/customizer.php:134
+#: inc/customizer.php:135
 msgid "Get Started"
 msgstr ""
 
-#: inc/customizer.php:143
+#: inc/customizer.php:144
 msgid "Button Text"
 msgstr ""
 
-#: inc/customizer.php:163
+#: inc/customizer.php:164
 msgid "Button Link"
 msgstr ""
 
-#: inc/customizer.php:184
+#: inc/customizer.php:185
 msgid "Background Image"
 msgstr ""
 
-#. translators: %s: post date.
-#: inc/template-tags.php:30
-msgctxt "post date"
-msgid "Posted on %s"
+#: inc/customizer.php:195
+msgid "Related Products"
+msgstr ""
+
+#: inc/customizer.php:205
+msgid "Number of Related Products"
+msgstr ""
+
+#: inc/customizer.php:206
+msgid "Set the number of related products to display."
+msgstr ""
+
+#: inc/customizer.php:219
+msgid "Post Settings"
+msgstr ""
+
+#: inc/customizer.php:231
+msgid "Select Number of Columns"
+msgstr ""
+
+#: inc/customizer.php:236
+msgid "1 Column"
+msgstr ""
+
+#: inc/customizer.php:237
+msgid "2 Columns"
+msgstr ""
+
+#: inc/customizer.php:238
+msgid "3 Columns"
+msgstr ""
+
+#: inc/customizer.php:239
+msgid "4 Columns"
+msgstr ""
+
+#: inc/customizer.php:251
+msgid "Display Excerpt"
+msgstr ""
+
+#: inc/customizer.php:265
+msgid "Display Read More Button"
+msgstr ""
+
+#. translators: %s: post modified date.
+#: inc/template-tags.php:27
+msgctxt "post modified date"
+msgid "Last updated on %s"
+msgstr ""
+
+#. translators: %s: post published date.
+#: inc/template-tags.php:40
+msgctxt "post published date"
+msgid "Published on %s"
 msgstr ""
 
 #. translators: %s: post author.
-#: inc/template-tags.php:46
+#: inc/template-tags.php:59
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
+#: inc/template-tags.php:77
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of categories.
-#: inc/template-tags.php:66
+#: inc/template-tags.php:80
 msgid "Posted in %1$s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:70
+#: inc/template-tags.php:84
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of tags.
-#: inc/template-tags.php:73
+#: inc/template-tags.php:87
 msgid "Tagged %1$s"
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:83
+#: inc/template-tags.php:97
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:100
+#: inc/template-tags.php:114
 #: template-parts/content-page.php:39
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/woocommerce.php:186
+#: inc/woocommerce.php:243
+msgid "Product Pagination"
+msgstr ""
+
+#: inc/woocommerce.php:317
 msgid "View your shopping cart"
 msgstr ""
 
 #. translators: number of items in the mini cart.
-#: inc/woocommerce.php:190
+#: inc/woocommerce.php:321
 msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/woocommerce.php:281
+#: inc/woocommerce.php:489
+msgid "Previous"
+msgstr ""
+
+#: inc/woocommerce.php:492
+msgid "Next"
+msgstr ""
+
+#: inc/woocommerce.php:731
 msgid "Weight"
 msgstr ""
 
-#: inc/woocommerce.php:285
+#: inc/woocommerce.php:735
 msgid "Dimensions"
 msgstr ""
 
-#: inc/woocommerce.php:289
+#: inc/woocommerce.php:739
 msgid "Materials"
 msgstr ""
 
-#: inc/woocommerce.php:294
+#: inc/woocommerce.php:744
 msgid "Size"
+msgstr ""
+
+#: inc/woocommerce.php:801
+msgid "Related products"
+msgstr ""
+
+#: inc/woocommerce.php:823
+msgid "Multiple variations available"
+msgstr ""
+
+#: inc/woocommerce.php:860
+msgid "Search"
 msgstr ""
 
 #. translators: %s: search query.
@@ -356,15 +394,11 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: single-product.php:179
-msgid "Related Products"
-msgstr ""
-
-#: single.php:23
+#: single.php:24
 msgid "Previous:"
 msgstr ""
 
-#: single.php:24
+#: single.php:25
 msgid "Next:"
 msgstr ""
 
@@ -386,13 +420,11 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searc
 msgstr ""
 
 #: template-parts/content-page.php:25
-#: template-parts/content.php:53
 msgid "Pages:"
 msgstr ""
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:40
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+#: template-parts/content.php:45
+msgid "Read More"
 msgstr ""
 
 #: woocommerce/myaccount/my-address.php:26
@@ -409,15 +441,15 @@ msgid "The following addresses will be used on the checkout page by default."
 msgstr ""
 
 #. translators: %s: Address title
-#: woocommerce/myaccount/my-address.php:66
+#: woocommerce/myaccount/my-address.php:67
 msgid "Edit %s"
 msgstr ""
 
 #. translators: %s: Address title
-#: woocommerce/myaccount/my-address.php:66
+#: woocommerce/myaccount/my-address.php:67
 msgid "Add %s"
 msgstr ""
 
-#: woocommerce/myaccount/my-address.php:74
+#: woocommerce/myaccount/my-address.php:75
 msgid "You have not set up this type of address yet."
 msgstr ""

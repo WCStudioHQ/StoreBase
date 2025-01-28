@@ -393,11 +393,11 @@ h1,h2,h3,h4,h5 {
 	color:  #333333;
 }
 
-h1 { font-size: 48px; line-height: 48px; }
-h2 { font-size: 24px; line-height: 30px; color: #252525; }
-h3 { font-size: 22px; line-height: 30px; }
-h5 { font-size: 18px; line-height: 30px; }
-h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
+h1 { font-size: 40px; line-height: 40px; margin: 10px 0; }
+h2 { font-size: 24px; line-height: 30px; color: #252525; margin: 10px 0 }
+h3 { font-size: 22px; line-height: 30px; margin: 10px 0}
+h5 { font-size: 18px; line-height: 30px; margin: 10px 0}
+h6 { font-size: 14px; line-height: 48px; font-weight: 400; margin: 10px 0}
 
 /* Extra classes
 ---------------------------------------------------------------*/
@@ -2276,7 +2276,6 @@ article .more-link a:hover:after {
 	width: 30px;
 	height: 30px;
 	text-align: center;
-	line-height: 30px;
 	background:  transparent;
 	border: 1px solid #ebebeb;
 	border-radius: 2px;
@@ -2287,6 +2286,9 @@ article .more-link a:hover:after {
 .flat-pagination li:hover {
 	background: #4E11E2;
 	border: 1px solid #4E11E2;
+	color:  #ffffff;
+}
+.flat-pagination li a:hover {
 	color:  #ffffff;
 }
 
