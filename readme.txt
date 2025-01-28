@@ -34,7 +34,7 @@ Yes, the theme is fully translation-ready and compatible with multilingual plugi
 
 == Changelog ==
 
-= 1.0.0 - January 23, 2025 =
+= 1.0.0 - January 28, 2025 =
 * Initial release.
 
 == Credits ==

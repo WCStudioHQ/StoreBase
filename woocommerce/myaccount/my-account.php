@@ -24,22 +24,22 @@ defined( 'ABSPATH' ) || exit;
  */
 ?>
 <div class="container">
-    <div class="row">
-        <!-- Left sidebar (navigation) -->
-        <div class="col-12 col-md-3 mb-4 mb-md-0">
-            <?php do_action( 'woocommerce_account_navigation' ); ?>
-        </div>
+	<div class="row">
+		<!-- Left sidebar (navigation) -->
+		<div class="col-12 col-md-3 mb-4 mb-md-0">
+			<?php do_action( 'woocommerce_account_navigation' ); ?>
+		</div>
 
-        <!-- Right content section -->
-        <div class="col-12 col-md-9">
-            <?php
-            /**
-             * My Account content.
-             *
-             * @since 2.6.0
-             */
-            do_action( 'woocommerce_account_content' );
-            ?>
-        </div>
-    </div>
+		<!-- Right content section -->
+		<div class="col-12 col-md-9">
+			<?php
+			/**
+			 * My Account content.
+			 *
+			 * @since 2.6.0
+			 */
+			do_action( 'woocommerce_account_content' );
+			?>
+		</div>
+	</div>
 </div>

@@ -24,6 +24,7 @@ function storebase_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'storebase_body_classes' );
 
 /**
@@ -34,4 +35,5 @@ function storebase_pingback_header() {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
+
 add_action( 'wp_head', 'storebase_pingback_header' );
