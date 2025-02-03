@@ -70,3 +70,13 @@
     margin-top: 20px;
     padding: 7px;
 }
+
+/*Start font page hero section*/
+.hero-main{
+    height: 70vh;
+}
+.hero-main .clipped{
+    min-height: 350px;
+    background-position: center;
+    background-size: cover;"
+}
