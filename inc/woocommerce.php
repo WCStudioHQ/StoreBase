@@ -47,23 +47,44 @@ add_action( 'after_setup_theme', 'storebase_woocommerce_setup' );
  */
 function storebase_woocommerce_scripts() {
 	wp_enqueue_style( 'storebase-woocommerce-style', get_template_directory_uri() . '/assets/css/woocommerce.css', array(), _STOREBASE_VERSION );
+
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
-			font-family: "star";
-			src: url("' . $font_path . 'star.eot");
-			src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
-				url("' . $font_path . 'star.woff") format("woff"),
-				url("' . $font_path . 'star.ttf") format("truetype"),
-				url("' . $font_path . 'star.svg#star") format("svg");
-			font-weight: normal;
-			font-style: normal;
-		}';
+        font-family: "star";
+        src: url("' . esc_url( $font_path . 'star.eot' ) . '");
+        src: url("' . esc_url( $font_path . 'star.eot?#iefix' ) . '") format("embedded-opentype"),
+             url("' . esc_url( $font_path . 'star.woff' ) . '") format("woff"),
+             url("' . esc_url( $font_path . 'star.ttf' ) . '") format("truetype"),
+             url("' . esc_url( $font_path . 'star.svg#star' ) . '") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }';
 
+	$hero_bg_image    = esc_url( get_theme_mod( 'storebase_hero_bg_image', '' ) );
+	$hero_section_css = '';
+
+	if ( ! empty( $hero_bg_image ) ) {
+		$hero_section_css = "
+            .hero-main .clipped {
+                background-image: url('{$hero_bg_image}');
+                background-position: center;
+                background-size: cover;
+                min-height: 350px;
+            }
+        ";
+	}
 	wp_add_inline_style( 'storebase-woocommerce-style', $inline_font );
+
+	if ( ! empty( $hero_section_css ) ) {
+		wp_add_inline_style( 'storebase-woocommerce-style', $hero_section_css );
+	}
 	if ( is_product() ) {
 		wp_enqueue_script( 'wc-add-to-cart-variation' );
 	}
 }
+
+add_action( 'wp_enqueue_scripts', 'storebase_woocommerce_scripts' );
+
 
 
 add_action( 'wp_enqueue_scripts', 'storebase_woocommerce_scripts' );
