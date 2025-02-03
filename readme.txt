@@ -10,13 +10,7 @@ A WooCommerce-compatible starter theme called StoreBase.
 
 == Description ==
 
-StoreBase is a starter theme built with WooCommerce in mind, designed to offer a solid foundation for creating your next eCommerce website. With support for custom backgrounds, logos, menus, threaded comments, and featured images, StoreBase gives you the tools to create a fully customizable and translation-ready website.
-
-Key Features:
-* WooCommerce compatibility for eCommerce functionality.
-* Lightweight and optimized for performance.
-* Customization support for easy branding.
-* Translation-ready for multilingual websites.
+StoreBase is a fast, lightweight, and modern WooCommerce theme designed to propel your online business into the future. Built with clean, optimized code for unparalleled performance and SEO, StoreBase adapts seamlessly to any device and integrates flawlessly with your favorite page builders like Elementor, Beaver Builder, and more. Whether you're creating a sleek eCommerce shop, a dynamic corporate portal, or a creative portfolio, StoreBase offers endless customization options and robust compatibility with top plugins such as WooCommerce, Yoast SEO, and Jetpack. Embrace a theme that's as innovative and versatile as your business—discover StoreBase and lay the foundation for your online success.
 
 == Installation ==
 
