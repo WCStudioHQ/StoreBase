@@ -11,8 +11,13 @@
 		?>
 		<div class="entry-meta mt-2">
 			<?php
-			storebase_posted_on();
-			storebase_posted_by();
+			/**
+			 * Hook: storebase_post_meta.
+			 *
+			 * @hooked storebase_posted_on - 10
+			 * @hooked storebase_posted_by - 20
+			 */
+			do_action( 'storebase_post_meta' );
 			?>
 		</div><!-- .entry-meta -->
 	<?php endif; ?>

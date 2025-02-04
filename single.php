@@ -12,7 +12,7 @@ get_header();
 
 	<main id="primary" class="site-main container">
 		<div class="row">
-			<div class="col-12">
+			<div class="<?php echo is_active_sidebar( 'sidebar-1' ) ? 'col-md-9' : 'col-12'; ?>">
 				<?php
 				while (have_posts()) :
 					the_post();
@@ -35,10 +35,15 @@ get_header();
 				endwhile; // End of the loop.
 				?>
 			</div>
+			<?php if (is_active_sidebar( 'sidebar-1' )) : ?>
+				<div class="col-md-3 py-3">
+					<?php get_sidebar(); ?>
+				</div>
+			<?php endif; ?>
 		</div>
 
 	</main><!-- #main -->
 
 <?php
-//get_sidebar();
+
 get_footer();

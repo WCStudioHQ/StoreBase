@@ -20,7 +20,7 @@ get_header();
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
-
+			<div class="row">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -43,7 +43,7 @@ get_header();
 
 		endif;
 		?>
-
+			</div>
 	</main><!-- #main -->
 
 <?php
