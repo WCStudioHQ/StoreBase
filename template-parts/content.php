@@ -26,8 +26,13 @@ $col_class         = 'post col-lg-' . ( 12 / $grid_post_columns ) . ' col-md-' .
 			?>
 			<div class="entry-meta">
 				<?php
-				storebase_posted_on();
-				storebase_posted_by();
+				/**
+				 * Hook: storebase_post_meta.
+				 *
+				 * @hooked storebase_posted_on - 10
+				 * @hooked storebase_posted_by - 20
+				 */
+				do_action( 'storebase_post_meta' );
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -40,7 +45,7 @@ $col_class         = 'post col-lg-' . ( 12 / $grid_post_columns ) . ' col-md-' .
 			?>
 			<div>
 				<?php
-				echo wp_trim_words( get_the_excerpt(), 20, '.....' );
+				echo storebase_excerpt_content();
 				if ($display_read_more) :
 					?>
 					<a href="<?php the_permalink(); ?>" class="btn btn-danger btn-sm">

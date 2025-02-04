@@ -37,3 +37,17 @@ function storebase_pingback_header() {
 }
 
 add_action( 'wp_head', 'storebase_pingback_header' );
+
+/**
+ * Retrieves the excerpt content with a customizable word limit.
+ *
+ * This function trims the post excerpt to a specified number of words.
+ * The default word limit is 20, but it can be modified using the
+ * 'storebase_excerpt_count' filter.
+ *
+ * @return string The trimmed excerpt with an appended ellipsis.
+ */
+function storebase_excerpt_content() {
+	$excerpt_count = apply_filters( 'storebase_excerpt_count', 20 );
+	return wp_trim_words( get_the_excerpt(), $excerpt_count, '.....' );
+}

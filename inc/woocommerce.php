@@ -841,13 +841,14 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 		}
 	}
 	/*
-	 * Add Custom Actions
+	 * Customize header search form
 	 * @return void
 	 * @since 1.0.0
 	 * @param $rating_html
 	 */
 	if ( ! function_exists( 'storebase_search_form' ) ) {
-		function storebase_search_form() {
+		function storebase_search_form( $form ) {
+
 			$form = '<form role="search" method="get" class="header-search-form" action="' . esc_url( home_url( '/' ) ) . '">
                             <input type="search" class="header-search-field" placeholder="Search for products..." value="' . get_search_query() . '" name="s" />
                             <input type="hidden" name="post_type" value="product" />
@@ -859,7 +860,5 @@ if ( ! function_exists( 'storebase_woocommerce_header_cart' ) ) {
 	add_filter( 'get_search_form', 'storebase_search_form' );
 
 }
-
-
 
 

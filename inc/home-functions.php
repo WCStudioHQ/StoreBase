@@ -4,6 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'storebase_homepage_hero_section', 'storebase_home_hero_section' );
+/*
+ * Homepage Hero Section
+ * @hooked storebase_home_hero_section
+ * @return void
+ * @since 1.0.0
+ */
 function storebase_home_hero_section() {
 	$hero_content = '
     <div class="container">
@@ -24,11 +30,17 @@ function storebase_home_hero_section() {
             <div class="col-md-8 h-100 clipped"></div>
         </div>
     </div>';
-	echo apply_filters( 'storebase_home_hero_section_content', $hero_content );
+	echo apply_filters( 'storebase_home_hero_section_content', wp_kses_post( $hero_content ) );
 }
 
 add_action( 'storebase_homepage_product_category_section', 'storebase_homepage_product_cat_section' );
 
+/**
+ * Homepage Product Category Section
+ * @hooked storebase_homepage_product_cat_section
+ * @return void
+ * @since 1.0.0
+ */
 function storebase_homepage_product_cat_section() {
 	?>
 	<section class="flat-row row-product-project shop-collection">
@@ -36,7 +48,7 @@ function storebase_homepage_product_cat_section() {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="title-section margin-bottom-41">
-						<h2 class="title"><?php echo apply_filters( 'storebase_shop_collection_title', esc_html__( 'Shop Collection' ,'storebase') ); ?></h2>
+						<h2 class="title"><?php echo apply_filters( 'storebase_shop_collection_title', esc_html__( 'Shop Collection', 'storebase' ) ); ?></h2>
 					</div>
 					<?php
 					$categories = get_terms(
@@ -95,7 +107,7 @@ function storebase_homepage_product_cat_section() {
 												if ( $image_url ) {
 													echo '<img class=" p-3" src="' . esc_url( $image_url ) . '" alt="' . esc_attr( get_the_title( $product_id ) ) . '">';
 												} else {
-													$fallback_image_url = get_theme_file_uri( '/assets/images/shop/sh-3/1.jpg' );
+													$fallback_image_url = get_theme_file_uri( '/assets/images/thumb.jpg' );
 													echo '<img src="' . esc_url( $fallback_image_url ) . '" alt="No image available">';
 												}
 												?>
