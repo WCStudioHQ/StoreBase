@@ -298,6 +298,45 @@ function storebase_customize_register( $wp_customize ) {
 	);
 
 	// End Post settings
+
+	// start shop page title
+
+	/*
+	 * Add a setting to show/hide the shop page title
+	 * Add a section under WooCommerce
+	 */
+	$wp_customize->add_section(
+		'storebase_shop_page_title_section',
+		array(
+			'title'    => __( 'Shop Page Title', 'storebase' ),
+			'priority' => 1,
+			'panel'    => 'woocommerce',
+		)
+	);
+
+	// Add a setting to show/hide the shop page title
+	$wp_customize->add_setting(
+		'storebase_shop_page_title_visibility',
+		array(
+			'default'           => 'show',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	// Add a control for the setting
+	$wp_customize->add_control(
+		'storebase_shop_page_title_visibility',
+		array(
+			'label'   => __( 'Show Shop Page Title', 'storebase' ),
+			'section' => 'storebase_shop_page_title_section',
+			'type'    => 'radio',
+			'choices' => array(
+				'show' => __( 'Show', 'storebase' ),
+				'hide' => __( 'Hide', 'storebase' ),
+			),
+		)
+	);
+	// end shop page title
 }
 
 add_action( 'customize_register', 'storebase_customize_register' );

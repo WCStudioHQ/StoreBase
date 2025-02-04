@@ -21,7 +21,7 @@ function storebase_woocommerce_setup() {
 	add_theme_support(
 		'woocommerce',
 		array(
-			'thumbnail_image_width' => 150,
+			'thumbnail_image_width' => 250,
 			'single_image_width'    => 300,
 			'product_grid'          => array(
 				'default_rows'    => 3,
@@ -178,7 +178,14 @@ add_action( 'woocommerce_after_main_content', 'storebase_woocommerce_wrapper_aft
  * @snippet       Remove shop page title - WooCommerce Shop
  * @compatible    WooCommerce
  */
-add_filter( 'woocommerce_show_page_title', '__return_null' );
+function storebase_woocommerce_shop_page_title() {
+	$show_title = get_theme_mod( 'storebase_shop_page_title_visibility', 'show' );
+	if ( 'hide' === $show_title ) {
+		add_filter( 'woocommerce_show_page_title', '__return_null' );
+	}
+}
+
+add_action( 'woocommerce_before_main_content', 'storebase_woocommerce_shop_page_title', 11 );
 
 /**
  * add custom filter in shop page for woocommerce
