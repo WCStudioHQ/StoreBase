@@ -37,6 +37,7 @@ add_action( 'storebase_homepage_product_category_section', 'storebase_homepage_p
 
 /**
  * Homepage Product Category Section
+ *
  * @hooked storebase_homepage_product_cat_section
  * @return void
  * @since 1.0.0

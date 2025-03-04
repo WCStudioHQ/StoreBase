@@ -16,13 +16,19 @@ get_header();
 				<?php
 				while (have_posts()) :
 					the_post();
-
 					get_template_part( 'template-parts/content', 'single-post' );
-
 					the_post_navigation(
 						array(
-							'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'storebase' ) . '</span> <span class="nav-title">%title</span>',
-							'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'storebase' ) . '</span> <span class="nav-title">%title</span>',
+							'prev_text' => sprintf(
+								'<span class="nav-subtitle">%s</span> <span class="nav-title">%s</span>',
+								esc_html__( 'Previous:', 'storebase' ),
+								esc_html( '%title' )
+							),
+							'next_text' => sprintf(
+								'<span class="nav-subtitle">%s</span> <span class="nav-title">%s</span>',
+								esc_html__( 'Next:', 'storebase' ),
+								esc_html( '%title' )
+							),
 						)
 					);
 
