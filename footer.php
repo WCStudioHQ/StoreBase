@@ -77,9 +77,9 @@
 										alt="image" width="107" height="24"></a>
 						</div>
 						<ul class="flat-contact">
-							<li class="address"><?php esc_html_e( '112 Mirpur, Dhaka, Bangladesh', 'storebase' ); ?></li>
-							<li class="phone"><?php esc_html_e( '+880 1737 345 456', 'storebase' ); ?></li>
-							<li class="email"><?php esc_html_e( 'wcstudio@gmail.com', 'storebase' ); ?></li>
+							<li class="address"><?php echo esc_html__( '112 Mirpur, Dhaka, Bangladesh', 'storebase' ); ?></li>
+							<li class="phone"><?php echo esc_html__( '+880 1737 345 456', 'storebase' ); ?></li>
+							<li class="email"><?php echo esc_html__( 'wcstudio@gmail.com', 'storebase' ); ?></li>
 						</ul><!-- /.flat-contact -->
 					</div>
 				<?php endif; ?>

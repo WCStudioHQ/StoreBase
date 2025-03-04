@@ -121,7 +121,7 @@
 												</li>
 											<?php endforeach; ?>
 											<li class="d-flex justify-content-between mt-2 p-3">
-												<strong> <?php esc_html__( 'Total:', 'storebase' ); ?></strong>
+												<strong> <?php echo esc_html__( 'Total:', 'storebase' ); ?></strong>
 												<span class="fw-bold "><?php echo WC()->cart->get_cart_total(); ?></span>
 											</li>
 											<div class="action-button">

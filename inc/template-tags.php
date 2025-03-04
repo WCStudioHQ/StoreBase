@@ -7,13 +7,13 @@
  * @package StoreBase
  */
 
-if ( ! function_exists( 'storebase_posted_on' )) :
+if ( ! function_exists( 'storebase_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function storebase_posted_on() {
 		// Check if the post has been modified
-		if (get_the_time( 'U' ) !== get_the_modified_time( 'U' )) {
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			// Display the last modified date
 			$time_string = sprintf(
 				'<time class="updated" datetime="%1$s">%2$s</time>',
@@ -58,12 +58,11 @@ if ( ! function_exists( 'storebase_posted_on' )) :
 
 endif;
 
-if ( ! function_exists( 'storebase_posted_by' )) :
+if ( ! function_exists( 'storebase_posted_by' ) ) :
 	/*** Prints HTML with meta information for the current author.
+	 *
 	 * @return void
 	 * @since 1.0.0
-	 *
-	 *
 	 */
 	function storebase_posted_by() {
 		$byline = sprintf(
@@ -85,29 +84,29 @@ if ( ! function_exists( 'storebase_posted_by' )) :
 	}
 endif;
 
-if ( ! function_exists( 'storebase_entry_footer' )) :
+if ( ! function_exists( 'storebase_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function storebase_entry_footer() {
 		// Hide category and tag text for pages.
-		if ('post' === get_post_type()) {
+		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'storebase' ) );
-			if ($categories_list) {
+			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'storebase' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'storebase' ) );
-			if ($tags_list) {
+			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'storebase' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() )) {
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
@@ -145,7 +144,7 @@ if ( ! function_exists( 'storebase_entry_footer' )) :
 	}
 endif;
 
-if ( ! function_exists( 'storebase_post_thumbnail' )) :
+if ( ! function_exists( 'storebase_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
@@ -153,11 +152,11 @@ if ( ! function_exists( 'storebase_post_thumbnail' )) :
 	 * element when on single views.
 	 */
 	function storebase_post_thumbnail() {
-		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
 
-		if (is_singular()) :
+		if ( is_singular() ) :
 			?>
 
 			<div class="post-thumbnail">
@@ -186,7 +185,7 @@ if ( ! function_exists( 'storebase_post_thumbnail' )) :
 	}
 endif;
 
-if ( ! function_exists( 'wp_body_open' )) :
+if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.
 	 *
